@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#F1EDE6" rx="20"/>
+  <text x="50" y="65" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="34" text-anchor="middle" fill="#1A1917" letter-spacing="-1">ISAiL</text>
+  <circle cx="65.5" cy="39" r="4.5" fill="#DA4C3E" />
+</svg>
