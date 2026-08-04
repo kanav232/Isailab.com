@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ISAiL — Indo Secure AI Labs</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -40,6 +41,19 @@
   .eyebrow::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--red); flex-shrink:0;}
   h1,h2,h3{font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em;}
   .display{font-weight:700; letter-spacing:-0.03em; line-height:0.98;}
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up {
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
 
   /* ===== NAV ===== */
   nav{
@@ -99,7 +113,7 @@
     font-size:14px; font-weight:600; display:inline-flex; align-items:center; gap:10px;
     transition:transform .2s, background .2s;
   }
-  .btn-primary:hover{background:var(--red); transform:translateY(-2px);}
+  .btn-primary:hover{background:var(--red); transform:translateY(-2px); box-shadow: 0 8px 24px rgba(218, 76, 62, 0.3);}
   .btn-ghost{
     padding:15px 4px; font-size:14px; font-weight:600; border-bottom:1px solid var(--ink);
     transition:border-color .2s, color .2s;
@@ -148,7 +162,8 @@
     background:var(--line-light); border:1px solid var(--line-light);
     margin-top:0;
   }
-  .pillar{background:var(--ink); padding:40px 32px; position:relative;}
+  .pillar{background:var(--ink); padding:40px 32px; position:relative; transition: transform 0.3s ease, background 0.3s ease;}
+  .pillar:hover{transform: translateY(-8px); background: #22211e; z-index: 10; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.4);}
   .pillar::before{
     content:''; position:absolute; top:-45px; left:50%; width:1px; height:44px; background:var(--line-light);
   }
@@ -207,7 +222,8 @@
   #admission .eyebrow{color:var(--red);}
   #admission .section-head p{color:rgba(241,237,230,0.68);}
   .adm-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px;}
-  .elig-card{border:1px solid var(--line-light); padding:36px; border-radius:2px;}
+  .elig-card{border:1px solid var(--line-light); padding:36px; border-radius:2px; transition: transform 0.3s ease, border-color 0.3s ease;}
+  .elig-card:hover{transform: translateY(-6px); border-color: rgba(218, 76, 62, 0.4); box-shadow: 0 16px 40px rgba(0,0,0,0.3);}
   .elig-card h3{font-size:16px; color:var(--cream); margin-bottom:18px; font-family:'JetBrains Mono',monospace; letter-spacing:0.05em; text-transform:uppercase; font-weight:500;}
   .elig-card ul{list-style:none;}
   .elig-card li{position:relative; padding-left:20px; margin-bottom:14px; font-size:14.5px; line-height:1.6; color:rgba(241,237,230,0.78);}
@@ -253,14 +269,14 @@
   <div class="hero-orbit"></div>
   <div class="hero-ring"></div>
   <div class="wrap hero-content">
-    <div class="hero-tag eyebrow">Indo Secure AI Labs</div>
-    <h1 class="display">Securing the <span>AI frontier</span><br>for India's future.</h1>
-    <p class="hero-sub">A multidisciplinary research and engineering initiative building safe, trustworthy, and strategically sound AI — across technical alignment, public policy, and real-world deployment.</p>
-    <div class="hero-actions">
+    <div class="hero-tag eyebrow fade-up">Indo Secure AI Labs</div>
+    <h1 class="display fade-up delay-1">Securing the <span>AI frontier</span><br>for India's future.</h1>
+    <p class="hero-sub fade-up delay-2">A multidisciplinary research and engineering initiative building safe, trustworthy, and strategically sound AI — across technical alignment, public policy, and real-world deployment.</p>
+    <div class="hero-actions fade-up delay-3">
       <a class="btn-primary" href="#bootcamp">Explore the AI Advantage Bootcamp →</a>
       <a class="btn-ghost" href="#about">What we do</a>
     </div>
-    <div class="hero-meta">
+    <div class="hero-meta fade-up delay-3">
       <div><div class="n">Discipline</div><div class="v">Core Tech</div></div>
       <div><div class="n">Discipline</div><div class="v">Policy</div></div>
       <div><div class="n">Discipline</div><div class="v">Impact</div></div>
