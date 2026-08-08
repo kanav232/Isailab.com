@@ -1,0 +1,6 @@
+# robots.txt — Indo Secure AI Labs (isailab.com)
+
+User-agent: *
+Allow: /
+
+Sitemap: https://isailab.com/sitemap.xml
