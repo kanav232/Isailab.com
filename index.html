@@ -1,441 +1,1181 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ISAiL — Indo Secure AI Labs</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --cream:#F1EDE6;
-    --ink:#1A1917;
-    --ink-soft:#2b2a27;
-    --red:#DA4C3E;
-    --red-dim:#a83c31;
-    --line: rgba(26,25,23,0.12);
-    --line-light: rgba(241,237,230,0.16);
-    --max: 1180px;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--cream);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  ::selection{background:var(--red); color:var(--cream);}
-  a{color:inherit; text-decoration:none;}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace;
-    font-size:11.5px;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    color:var(--red);
-    display:flex; align-items:center; gap:10px;
-  }
-  .eyebrow::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--red); flex-shrink:0;}
-  h1,h2,h3{font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em;}
-  .display{font-weight:700; letter-spacing:-0.03em; line-height:0.98;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISAiL — Indo Secure AI Labs</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F1EDE6;
+      --ink: #1A1917;
+      --ink-soft: #2b2a27;
+      --red: #DA4C3E;
+      --red-dim: #a83c31;
+      --line: rgba(26, 25, 23, 0.12);
+      --line-light: rgba(241, 237, 230, 0.16);
+      --max: 1180px;
+    }
 
-  /* ===== ANIMATIONS ===== */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .fade-up {
-    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    opacity: 0;
-  }
-  .delay-1 { animation-delay: 0.1s; }
-  .delay-2 { animation-delay: 0.2s; }
-  .delay-3 { animation-delay: 0.3s; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  /* ===== NAV ===== */
-  nav{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    background:rgba(241,237,230,0.82);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav-inner{max-width:var(--max); margin:0 auto; padding:18px 32px; display:flex; align-items:center; justify-content:space-between;}
-  .logo-mark{height: 38px; width: auto; object-fit: contain;}
-  .nav-links{display:flex; gap:36px; font-size:13.5px; font-weight:500;}
-  .nav-links a{opacity:0.7; transition:opacity .2s;}
-  .nav-links a:hover{opacity:1;}
-  .nav-cta{
-    font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.04em;
-    background:var(--ink); color:var(--cream); padding:10px 18px; border-radius:2px;
-    transition:background .2s;
-  }
-  .nav-cta:hover{background:var(--red);}
-  @media(max-width:860px){ .nav-links{display:none;} }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* ===== HERO ===== */
-  .hero{
-    position:relative;
-    min-height:100vh;
-    display:flex; flex-direction:column; justify-content:center;
-    padding-top:120px; padding-bottom:80px;
-    overflow:hidden;
-  }
-  .hero-orbit{
-    position:absolute; top:-180px; right:-180px;
-    width:520px; height:520px; border-radius:50%;
-    background:radial-gradient(circle at 35% 35%, var(--red), var(--red-dim) 70%);
-    opacity:0.95;
-    z-index:0;
-  }
-  .hero-ring{
-    position:absolute; top:-60px; right:60px;
-    width:640px; height:640px; border-radius:50%;
-    border:1px solid var(--line);
-    z-index:0;
-  }
-  .hero-content{position:relative; z-index:2;}
-  .hero-tag{margin-bottom:28px;}
-  .hero h1{
-    font-size:clamp(48px,7.2vw,104px);
-    max-width:920px;
-  }
-  .hero h1 span{color:var(--red);}
-  .hero-sub{
-    max-width:560px; margin-top:28px; font-size:18px; line-height:1.6; color:var(--ink-soft);
-  }
-  .hero-actions{display:flex; gap:16px; margin-top:44px; flex-wrap:wrap; align-items:center;}
-  .btn-primary{
-    background:var(--ink); color:var(--cream); padding:15px 28px; border-radius:2px;
-    font-size:14px; font-weight:600; display:inline-flex; align-items:center; gap:10px;
-    transition:transform .2s, background .2s;
-  }
-  .btn-primary:hover{background:var(--red); transform:translateY(-2px); box-shadow: 0 8px 24px rgba(218, 76, 62, 0.3);}
-  .btn-ghost{
-    padding:15px 4px; font-size:14px; font-weight:600; border-bottom:1px solid var(--ink);
-    transition:border-color .2s, color .2s;
-  }
-  .btn-ghost:hover{color:var(--red); border-color:var(--red);}
-  .hero-meta{
-    margin-top:96px; display:grid; grid-template-columns:repeat(3,1fr); gap:0;
-    border-top:1px solid var(--line); padding-top:24px; max-width:760px;
-  }
-  .hero-meta div{padding-right:24px;}
-  .hero-meta .n{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--red); letter-spacing:0.1em; text-transform:uppercase;}
-  .hero-meta .v{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:20px; margin-top:6px;}
-  @media(max-width:700px){ .hero-meta{grid-template-columns:1fr; gap:18px;} .hero-orbit,.hero-ring{display:none;} }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-  /* ===== SECTION shared ===== */
-  section{padding:120px 0; position:relative;}
-  .section-head{max-width:680px; margin-bottom:64px;}
-  .section-head h2{font-size:clamp(32px,4vw,52px); margin-top:18px;}
-  .section-head p{margin-top:18px; font-size:16.5px; line-height:1.7; color:var(--ink-soft);}
-  .rule{height:1px; background:var(--line); width:100%;}
+    ::selection {
+      background: var(--red);
+      color: var(--cream);
+    }
 
-  /* ===== WHO WE ARE ===== */
-  #about{background:var(--cream);}
-  .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:80px; align-items:start;}
-  .about-copy p{font-size:16px; line-height:1.8; color:var(--ink-soft); margin-bottom:20px;}
-  .about-copy strong{color:var(--ink); font-weight:600;}
-  .about-quote{
-    border-left:2px solid var(--red); padding-left:22px; margin-top:36px;
-    font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:500; line-height:1.5;
-  }
-  @media(max-width:860px){ .about-grid{grid-template-columns:1fr; gap:40px;} }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  /* ===== PILLARS (tree) ===== */
-  #pillars{background:var(--ink); color:var(--cream);}
-  #pillars .eyebrow{color:var(--red);}
-  #pillars .section-head p{color:rgba(241,237,230,0.68);}
-  .tree{margin-top:20px; text-align:center;}
-  .tree-root{
-    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:13px;
-    letter-spacing:0.1em; text-transform:uppercase; color:var(--cream);
-    border:1px solid var(--line-light); padding:10px 22px; border-radius:2px;
-  }
-  .tree-stem{width:1px; height:44px; background:var(--line-light); margin:0 auto;}
-  .pillars-grid{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
-    background:var(--line-light); border:1px solid var(--line-light);
-    margin-top:0;
-  }
-  .pillar{background:var(--ink); padding:40px 32px; position:relative; transition: transform 0.3s ease, background 0.3s ease;}
-  .pillar:hover{transform: translateY(-8px); background: #22211e; z-index: 10; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.4);}
-  .pillar::before{
-    content:''; position:absolute; top:-45px; left:50%; width:1px; height:44px; background:var(--line-light);
-  }
-  .pillar .idx{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--red); letter-spacing:0.1em;}
-  .pillar h3{font-size:22px; margin-top:16px; color:var(--cream);}
-  .pillar p{margin-top:14px; font-size:14.5px; line-height:1.7; color:rgba(241,237,230,0.62);}
-  @media(max-width:860px){
-    .pillars-grid{grid-template-columns:1fr;}
-    .pillar::before{display:none;}
-  }
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
 
-  /* ===== BOOTCAMP ===== */
-  #bootcamp{background:var(--cream);}
-  .bc-hero{
-    background:var(--ink); color:var(--cream); border-radius:4px; padding:64px 56px;
-    position:relative; overflow:hidden;
-  }
-  .bc-orbit{position:absolute; top:-120px; right:-100px; width:340px; height:340px; border-radius:50%;
-    background:radial-gradient(circle at 35% 35%, var(--red), var(--red-dim) 70%); opacity:0.9;}
-  .bc-inner{position:relative; z-index:2; max-width:640px;}
-  .bc-inner .eyebrow{color:var(--red);}
-  .bc-inner h2{font-size:clamp(30px,4.5vw,52px); margin-top:16px; color:var(--cream);}
-  .bc-inner h2 em{font-style:normal; color:var(--red);}
-  .bc-inner p{margin-top:20px; font-size:16px; line-height:1.7; color:rgba(241,237,230,0.72);}
-  .bc-badges{display:flex; gap:12px; margin-top:36px; flex-wrap:wrap;}
-  .badge{
-    border:1px solid var(--line-light); padding:12px 18px; border-radius:2px;
-    font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(241,237,230,0.85);
-  }
-  .badge b{display:block; color:var(--red); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; font-weight:500;}
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-  .bc-flow{margin-top:80px;}
-  .flow-label{font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--red); margin-bottom:28px;}
-  .flow-steps{display:grid; grid-template-columns:repeat(5,1fr); gap:0; border-top:1px solid var(--line);}
-  .flow-step{padding:24px 20px 0; border-right:1px solid var(--line);}
-  .flow-step:last-child{border-right:none;}
-  .flow-step .num{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--red);}
-  .flow-step p{font-size:14px; line-height:1.5; margin-top:10px; color:var(--ink-soft);}
-  @media(max-width:900px){ .flow-steps{grid-template-columns:1fr 1fr;} .flow-step{border-right:none; border-bottom:1px solid var(--line); padding-bottom:24px;} }
-  @media(max-width:600px){ .flow-steps{grid-template-columns:1fr;} .bc-hero{padding:44px 26px;} }
+    .eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+    }
 
-  /* schedule */
-  .schedule{margin-top:90px; display:grid; grid-template-columns:1fr 1fr; gap:56px;}
-  .day-label{
-    font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
-    color:var(--red); border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:20px;
-  }
-  .day-item{display:flex; gap:16px; padding:14px 0; border-bottom:1px dashed var(--line);}
-  .day-item .roman{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--red); flex-shrink:0; width:26px; padding-top:2px;}
-  .day-item .txt b{font-size:14.5px; font-weight:600;}
-  .day-item .txt p{font-size:13.5px; color:var(--ink-soft); margin-top:4px; line-height:1.5;}
-  @media(max-width:800px){ .schedule{grid-template-columns:1fr; gap:36px;} }
+    h1,
+    h2,
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
 
-  /* ===== ELIGIBILITY / ADMISSION ===== */
-  #admission{background:var(--ink); color:var(--cream);}
-  #admission .eyebrow{color:var(--red);}
-  #admission .section-head p{color:rgba(241,237,230,0.68);}
-  .adm-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px;}
-  .elig-card{border:1px solid var(--line-light); padding:36px; border-radius:2px; transition: transform 0.3s ease, border-color 0.3s ease;}
-  .elig-card:hover{transform: translateY(-6px); border-color: rgba(218, 76, 62, 0.4); box-shadow: 0 16px 40px rgba(0,0,0,0.3);}
-  .elig-card h3{font-size:16px; color:var(--cream); margin-bottom:18px; font-family:'JetBrains Mono',monospace; letter-spacing:0.05em; text-transform:uppercase; font-weight:500;}
-  .elig-card ul{list-style:none;}
-  .elig-card li{position:relative; padding-left:20px; margin-bottom:14px; font-size:14.5px; line-height:1.6; color:rgba(241,237,230,0.78);}
-  .elig-card li::before{content:''; position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--red);}
+    .display {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 0.98;
+    }
 
-  .timeline{width:100%; border-collapse:collapse; font-size:13.5px;}
-  .timeline th{text-align:left; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); padding-bottom:12px; border-bottom:1px solid var(--line-light); font-weight:500;}
-  .timeline td{padding:14px 0; border-bottom:1px solid var(--line-light); color:rgba(241,237,230,0.82); vertical-align:top;}
-  .timeline td.date{color:var(--red); font-family:'JetBrains Mono',monospace; font-weight:500; white-space:nowrap; text-align:right;}
-  @media(max-width:860px){ .adm-grid{grid-template-columns:1fr; gap:36px;} }
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
 
-  /* ===== CTA / FOOTER ===== */
-  #cta{background:var(--cream); text-align:center; padding:140px 0;}
-  #cta .cta-dot{width:14px; height:14px; border-radius:50%; background:var(--red); margin:0 auto 28px;}
-  #cta h2{font-size:clamp(34px,5.5vw,64px); max-width:760px; margin:0 auto;}
-  #cta p{margin-top:20px; font-size:16px; color:var(--ink-soft);}
-  #cta .btn-primary{margin-top:40px;}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  footer{background:var(--ink); color:rgba(241,237,230,0.6); padding:48px 0; border-top:1px solid var(--line-light);}
-  .footer-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; font-size:13px;}
-  .footer-inner .logo-mark{filter: brightness(0) invert(1);}
-  .footer-links{display:flex; gap:28px;}
-  .footer-links a{opacity:0.8; transition:opacity .2s;}
-  .footer-links a:hover{opacity:1; color:var(--red);}
-</style>
+    .fade-up {
+      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+    }
+
+    .delay-1 {
+      animation-delay: 0.1s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.3s;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(241, 237, 230, 0.82);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-mark {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      font-size: 13.5px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      opacity: 0.7;
+      transition: opacity .2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .nav-cta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 10px 18px;
+      border-radius: 2px;
+      transition: background .2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--red);
+    }
+
+    @media(max-width:860px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 120px;
+      padding-bottom: 80px;
+      overflow: hidden;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      top: -180px;
+      right: -180px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, var(--red), var(--red-dim) 70%);
+      opacity: 0.95;
+      z-index: 0;
+    }
+
+    .hero-ring {
+      position: absolute;
+      top: -60px;
+      right: 60px;
+      width: 640px;
+      height: 640px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 7.2vw, 104px);
+      max-width: 920px;
+    }
+
+    .hero h1 span {
+      color: var(--red);
+    }
+
+    .hero-sub {
+      max-width: 560px;
+      margin-top: 28px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 44px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 15px 28px;
+      border-radius: 2px;
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform .2s, background .2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--red);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(218, 76, 62, 0.3);
+    }
+
+    .btn-ghost {
+      padding: 15px 4px;
+      font-size: 14px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--ink);
+      transition: border-color .2s, color .2s;
+    }
+
+    .btn-ghost:hover {
+      color: var(--red);
+      border-color: var(--red);
+    }
+
+    .hero-meta {
+      margin-top: 96px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+      max-width: 760px;
+    }
+
+    .hero-meta div {
+      padding-right: 24px;
+    }
+
+    .hero-meta .n {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--red);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-meta .v {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      margin-top: 6px;
+    }
+
+    @media(max-width:700px) {
+      .hero-meta {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .hero-orbit,
+      .hero-ring {
+        display: none;
+      }
+    }
+
+    /* ===== SECTION shared ===== */
+    section {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .section-head {
+      max-width: 680px;
+      margin-bottom: 64px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      margin-top: 18px;
+    }
+
+    .section-head p {
+      margin-top: 18px;
+      font-size: 16.5px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+
+    .rule {
+      height: 1px;
+      background: var(--line);
+      width: 100%;
+    }
+
+    /* ===== WHO WE ARE ===== */
+    #about {
+      background: var(--cream);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-copy p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+    }
+
+    .about-copy strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .about-quote {
+      border-left: 2px solid var(--red);
+      padding-left: 22px;
+      margin-top: 36px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 19px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    @media(max-width:860px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    /* ===== PILLARS (tree) ===== */
+    #pillars {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    #pillars .eyebrow {
+      color: var(--red);
+    }
+
+    #pillars .section-head p {
+      color: rgba(241, 237, 230, 0.68);
+    }
+
+    .tree {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .tree-root {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cream);
+      border: 1px solid var(--line-light);
+      padding: 10px 22px;
+      border-radius: 2px;
+    }
+
+    .tree-stem {
+      width: 1px;
+      height: 44px;
+      background: var(--line-light);
+      margin: 0 auto;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line-light);
+      border: 1px solid var(--line-light);
+      margin-top: 0;
+    }
+
+    .pillar {
+      background: var(--ink);
+      padding: 40px 32px;
+      position: relative;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .pillar:hover {
+      transform: translateY(-8px);
+      background: #22211e;
+      z-index: 10;
+      border-radius: 4px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .pillar::before {
+      content: '';
+      position: absolute;
+      top: -45px;
+      left: 50%;
+      width: 1px;
+      height: 44px;
+      background: var(--line-light);
+    }
+
+    .pillar .idx {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--red);
+      letter-spacing: 0.1em;
+    }
+
+    .pillar h3 {
+      font-size: 22px;
+      margin-top: 16px;
+      color: var(--cream);
+    }
+
+    .pillar p {
+      margin-top: 14px;
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: rgba(241, 237, 230, 0.62);
+    }
+
+    @media(max-width:860px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pillar::before {
+        display: none;
+      }
+    }
+
+    /* ===== BOOTCAMP ===== */
+    #bootcamp {
+      background: var(--cream);
+    }
+
+    .bc-hero {
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: 4px;
+      padding: 64px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bc-orbit {
+      position: absolute;
+      top: -120px;
+      right: -100px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, var(--red), var(--red-dim) 70%);
+      opacity: 0.9;
+    }
+
+    .bc-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+    }
+
+    .bc-inner .eyebrow {
+      color: var(--red);
+    }
+
+    .bc-inner h2 {
+      font-size: clamp(30px, 4.5vw, 52px);
+      margin-top: 16px;
+      color: var(--cream);
+    }
+
+    .bc-inner h2 em {
+      font-style: normal;
+      color: var(--red);
+    }
+
+    .bc-inner p {
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(241, 237, 230, 0.72);
+    }
+
+    .bc-badges {
+      display: flex;
+      gap: 12px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      border: 1px solid var(--line-light);
+      padding: 12px 18px;
+      border-radius: 2px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: rgba(241, 237, 230, 0.85);
+    }
+
+    .badge b {
+      display: block;
+      color: var(--red);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .bc-flow {
+      margin-top: 80px;
+    }
+
+    .flow-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 28px;
+    }
+
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .flow-step {
+      padding: 24px 20px 0;
+      border-right: 1px solid var(--line);
+    }
+
+    .flow-step:last-child {
+      border-right: none;
+    }
+
+    .flow-step .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--red);
+    }
+
+    .flow-step p {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-top: 10px;
+      color: var(--ink-soft);
+    }
+
+    @media(max-width:900px) {
+      .flow-steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .flow-step {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 24px;
+      }
+    }
+
+    @media(max-width:600px) {
+      .flow-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .bc-hero {
+        padding: 44px 26px;
+      }
+    }
+
+    /* schedule */
+    .schedule {
+      margin-top: 90px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+
+    .day-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+      margin-bottom: 20px;
+    }
+
+    .day-item {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .day-item .roman {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--red);
+      flex-shrink: 0;
+      width: 26px;
+      padding-top: 2px;
+    }
+
+    .day-item .txt b {
+      font-size: 14.5px;
+      font-weight: 600;
+    }
+
+    .day-item .txt p {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    @media(max-width:800px) {
+      .schedule {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    /* ===== ELIGIBILITY / ADMISSION ===== */
+    #admission {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    #admission .eyebrow {
+      color: var(--red);
+    }
+
+    #admission .section-head p {
+      color: rgba(241, 237, 230, 0.68);
+    }
+
+    .adm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+
+    .elig-card {
+      border: 1px solid var(--line-light);
+      padding: 36px;
+      border-radius: 2px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .elig-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(218, 76, 62, 0.4);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .elig-card h3 {
+      font-size: 16px;
+      color: var(--cream);
+      margin-bottom: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .elig-card ul {
+      list-style: none;
+    }
+
+    .elig-card li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 14px;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: rgba(241, 237, 230, 0.78);
+    }
+
+    .elig-card li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .timeline {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+
+    .timeline th {
+      text-align: left;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--red);
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line-light);
+      font-weight: 500;
+    }
+
+    .timeline td {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line-light);
+      color: rgba(241, 237, 230, 0.82);
+      vertical-align: top;
+    }
+
+    .timeline td.date {
+      color: var(--red);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    @media(max-width:860px) {
+      .adm-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    /* ===== CTA / FOOTER ===== */
+    #cta {
+      background: var(--cream);
+      text-align: center;
+      padding: 140px 0;
+    }
+
+    #cta .cta-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--red);
+      margin: 0 auto 28px;
+    }
+
+    #cta h2 {
+      font-size: clamp(34px, 5.5vw, 64px);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    #cta p {
+      margin-top: 20px;
+      font-size: 16px;
+      color: var(--ink-soft);
+    }
+
+    #cta .btn-primary {
+      margin-top: 40px;
+    }
+
+    footer {
+      background: var(--ink);
+      color: rgba(241, 237, 230, 0.6);
+      padding: 48px 0;
+      border-top: 1px solid var(--line-light);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-links a {
+      opacity: 0.8;
+      transition: opacity .2s;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--red);
+    }
+  </style>
 </head>
+
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <img src="logo.png" alt="ISAiL Logo" class="logo-mark">
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#pillars">Pillars</a>
-      <a href="#bootcamp">Bootcamp</a>
-      <a href="#admission">Apply</a>
-    </div>
-    <a class="nav-cta" href="#admission">Apply now →</a>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="hero-orbit"></div>
-  <div class="hero-ring"></div>
-  <div class="wrap hero-content">
-    <div class="hero-tag eyebrow fade-up">Indo Secure AI Labs</div>
-    <h1 class="display fade-up delay-1">Securing the <span>AI frontier</span><br>for India's future.</h1>
-    <p class="hero-sub fade-up delay-2">A multidisciplinary research and engineering initiative building safe, trustworthy, and strategically sound AI — across technical alignment, public policy, and real-world deployment.</p>
-    <div class="hero-actions fade-up delay-3">
-      <a class="btn-primary" href="#bootcamp">Explore the AI Advantage Bootcamp →</a>
-      <a class="btn-ghost" href="#about">What we do</a>
-    </div>
-    <div class="hero-meta fade-up delay-3">
-      <div><div class="n">Discipline</div><div class="v">Core Tech</div></div>
-      <div><div class="n">Discipline</div><div class="v">Policy</div></div>
-      <div><div class="n">Discipline</div><div class="v">Impact</div></div>
-    </div>
-  </div>
-</header>
-
-<section id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="about-copy">
-        <div class="eyebrow">Who we are</div>
-        <h2 style="margin-top:18px; font-size:clamp(28px,3.6vw,42px);">Building the people and infrastructure who will shape how India builds AI.</h2>
-        <div class="about-quote">"The question is no longer whether AI will define our future — but who will build it safely, govern it wisely, and deploy it responsibly."</div>
+  <nav>
+    <div class="nav-inner">
+      <img src="logo.png" alt="ISAiL Logo" class="logo-mark">
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#pillars">Pillars</a>
+        <a href="#bootcamp">Bootcamp</a>
+        <a href="#admission">Apply</a>
       </div>
-      <div class="about-copy">
-        <p><strong>Indo Secure AI Labs (ISAiL)</strong> exists to answer that question. We're a multidisciplinary research and engineering initiative advancing safe, trustworthy AI for India — spanning technical research, model development, applied engineering, and real-world deployment.</p>
-        <p>We bring together technologists, policy thinkers, and domain specialists to build solutions that matter — and run bootcamps and fellowships that bring bright, curious minds from every academic stream into that work.</p>
-        <p>Instead of treating AI purely as a coding tool, ISAiL operates at the intersection of technical safety, public policy, and real-world impact — building <strong>techno-civic stewardship</strong> for students, founders, and young leaders across Science, Commerce, and Humanities.</p>
-      </div>
+      <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe-JjywFJakjDjGADqYrpDygKJ-ACJ-_Bp9jHBzuStn1A366Q/viewform?usp=header" target="_blank">Apply now →</a>
     </div>
-  </div>
-</section>
+  </nav>
 
-<section id="pillars">
-  <div class="wrap">
-    <div class="section-head" style="margin:0 auto 56px; text-align:center;">
-      <div class="eyebrow" style="justify-content:center;">The three pillars</div>
-      <h2>One lab, three disciplines.</h2>
-      <p style="margin-left:auto; margin-right:auto;">ISAiL runs original research, ships models and projects, and deploys solutions where they're needed most — organized around three foundational pillars.</p>
-    </div>
-
-    <div class="tree">
-      <div class="tree-root">Indo Secure AI Labs</div>
-      <div class="tree-stem"></div>
-    </div>
-
-    <div class="pillars-grid">
-      <div class="pillar">
-        <div class="idx">01 — Core Tech</div>
-        <h3>Technical Alignment &amp; Security</h3>
-        <p>Model safety evaluations, adversarial red-teaming, prompt security, and safety alignment — with special emphasis on Indic models and regional language safety.</p>
+  <header class="hero">
+    <div class="hero-orbit"></div>
+    <div class="hero-ring"></div>
+    <div class="wrap hero-content">
+      <div class="hero-tag eyebrow fade-up">Indo Secure AI Labs</div>
+      <h1 class="display fade-up delay-1">Securing the <span>AI frontier</span><br>for India's future.</h1>
+      <p class="hero-sub fade-up delay-2">A multidisciplinary research and engineering initiative building safe,
+        trustworthy, and strategically sound AI — across technical alignment, public policy, and real-world deployment.
+      </p>
+      <div class="hero-actions fade-up delay-3">
+        <a class="btn-primary" href="#bootcamp">Explore the AI Advantage Bootcamp →</a>
+        <a class="btn-ghost" href="#about">What we do</a>
       </div>
-      <div class="pillar">
-        <div class="idx">02 — Policy</div>
-        <h3>Sovereign Strategy &amp; e-Governance</h3>
-        <p>Macro tech policy, sovereign compute infrastructure, and data privacy law — exploring how public institutions can use AI for governance and civic service delivery safely.</p>
-      </div>
-      <div class="pillar">
-        <div class="idx">03 — Impact</div>
-        <h3>Real-World Deployment</h3>
-        <p>Practical, scalable AI for public good — rural healthcare diagnostics, agricultural forecasting, education, and bridging the digital divide across 22+ regional languages.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="bootcamp">
-  <div class="wrap">
-    <div class="bc-hero">
-      <div class="bc-orbit"></div>
-      <div class="bc-inner">
-        <div class="eyebrow">Chapter one · Indo Secure AI Labs presents</div>
-        <h2>The AI Advantage. <em>Bootcamp</em></h2>
-        <p>Making Business Smarter with AI — a 2-day immersive program where high school students step into the role of AI consultants. Think. Build. Pitch.</p>
-        <div class="bc-badges">
-          <div class="badge"><b>Who</b>Grades 9–12 · All streams</div>
-          <div class="badge"><b>Format</b>2-day, in-person</div>
-          <div class="badge"><b>Location</b>IIIT Delhi</div>
-          <div class="badge"><b>Dates</b>22–23 Aug</div>
+      <div class="hero-meta fade-up delay-3">
+        <div>
+          <div class="n">Discipline</div>
+          <div class="v">Core Tech</div>
+        </div>
+        <div>
+          <div class="n">Discipline</div>
+          <div class="v">Policy</div>
+        </div>
+        <div>
+          <div class="n">Discipline</div>
+          <div class="v">Impact</div>
         </div>
       </div>
     </div>
+  </header>
 
-    <div class="bc-flow">
-      <div class="flow-label">What students will do</div>
-      <div class="flow-steps">
-        <div class="flow-step"><div class="num">01</div><p>Explore how leading businesses use AI to solve real problems</p></div>
-        <div class="flow-step"><div class="num">02</div><p>Diagnose the challenges of a real, everyday business</p></div>
-        <div class="flow-step"><div class="num">03</div><p>Research and design an AI-powered improvement plan</p></div>
-        <div class="flow-step"><div class="num">04</div><p>Build sample AI-powered deliverables using no-code tools</p></div>
-        <div class="flow-step"><div class="num">05</div><p>Pitch their solution to a panel, consultant-style</p></div>
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-copy">
+          <div class="eyebrow">Who we are</div>
+          <h2 style="margin-top:18px; font-size:clamp(28px,3.6vw,42px);">Building the people and infrastructure who will
+            shape how India builds AI.</h2>
+          <div class="about-quote">"The question is no longer whether AI will define our future — but who will build it
+            safely, govern it wisely, and deploy it responsibly."</div>
+        </div>
+        <div class="about-copy">
+          <p><strong>Indo Secure AI Labs (ISAiL)</strong> exists to answer that question. We're a multidisciplinary
+            research and engineering initiative advancing safe, trustworthy AI for India — spanning technical research,
+            model development, applied engineering, and real-world deployment.</p>
+          <p>We bring together technologists, policy thinkers, and domain specialists to build solutions that matter —
+            and run bootcamps and fellowships that bring bright, curious minds from every academic stream into that
+            work.</p>
+          <p>Instead of treating AI purely as a coding tool, ISAiL operates at the intersection of technical safety,
+            public policy, and real-world impact — building <strong>techno-civic stewardship</strong> for students,
+            founders, and young leaders across Science, Commerce, and Humanities.</p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="schedule">
-      <div>
-        <div class="day-label">Day one — The Awakening</div>
-        <div class="day-item"><div class="roman">I</div><div class="txt"><b>The Opening Address</b><p>A formal welcome into the ISAiL fold, and the first look at what lies ahead.</p></div></div>
-        <div class="day-item"><div class="roman">II</div><div class="txt"><b>The New Rules of Business</b><p>How AI is quietly rewriting the playbook for how businesses win.</p></div></div>
-        <div class="day-item"><div class="roman">III</div><div class="txt"><b>Where Businesses Struggle</b><p>Mapping the real pain points hiding beneath the surface of everyday enterprises.</p></div></div>
-        <div class="day-item"><div class="roman">IV</div><div class="txt"><b>The Diagnosis</b><p>Choosing a real business, and uncovering where it's losing time, money, and customers.</p></div></div>
-        <div class="day-item"><div class="roman">V</div><div class="txt"><b>The Research Sprint</b><p>Studying how the world's smartest businesses are already solving these problems with AI.</p></div></div>
-        <div class="day-item" style="border-bottom:none;"><div class="roman">VI–VII</div><div class="txt"><b>Designing the Fix &amp; The Trust Factor</b><p>Drafting an AI-powered solution, then a conversation on responsible AI.</p></div></div>
+  <section id="pillars">
+    <div class="wrap">
+      <div class="section-head" style="margin:0 auto 56px; text-align:center;">
+        <div class="eyebrow" style="justify-content:center;">The three pillars</div>
+        <h2>One lab, three disciplines.</h2>
+        <p style="margin-left:auto; margin-right:auto;">ISAiL runs original research, ships models and projects, and
+          deploys solutions where they're needed most — organized around three foundational pillars.</p>
       </div>
-      <div>
-        <div class="day-label">Day two — The Transformation</div>
-        <div class="day-item"><div class="roman">VIII</div><div class="txt"><b>The Makeover Blueprint</b><p>Finalizing the AI-powered plan that will define the team's solution.</p></div></div>
-        <div class="day-item"><div class="roman">IX</div><div class="txt"><b>The Prototype Lab</b><p>Bringing the idea to life — building the first tangible pieces of the solution.</p></div></div>
-        <div class="day-item"><div class="roman">X</div><div class="txt"><b>The Art of the Pitch</b><p>Learning to present like a consultant — with clarity, confidence, and conviction.</p></div></div>
-        <div class="day-item"><div class="roman">XI</div><div class="txt"><b>The Final Rehearsal</b><p>One last polish before stepping into the spotlight.</p></div></div>
-        <div class="day-item"><div class="roman">XII</div><div class="txt"><b>The Grand Reveal</b><p>Final pitches, delivered live to a panel — the culmination of two days of work.</p></div></div>
-        <div class="day-item" style="border-bottom:none;"><div class="roman">XIII–XIV</div><div class="txt"><b>Closing Ceremony &amp; Farewell</b><p>Awards, certificates, and a formal send-off into the ISAiL community.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="admission">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">How to join</div>
-      <h2>Eligibility</h2>
-      <p>Seats are limited — early application is strongly encouraged. Review of applications may begin before the stated deadline.</p>
-    </div>
-
-    <div class="adm-grid">
-      <div class="elig-card">
-        <h3>Eligibility criteria</h3>
-        <ul>
-          <li>Currently enrolled in Grade 9, 10, 11, or 12 at a recognized school, in any academic stream (Science, Commerce, or Humanities).</li>
-          <li>Have completed Grade 12 (or equivalent) in 2026, and are awaiting or have received results.</li>
-          <li>No prior coding experience, business background, or technical qualification required — candidates are evaluated on curiosity, aptitude, and a one-page Statement of Purpose.</li>
-        </ul>
+      <div class="tree">
+        <div class="tree-root">Indo Secure AI Labs</div>
+        <div class="tree-stem"></div>
       </div>
-      <div>
-        <table class="timeline">
-          <tr><th>Stage</th><th style="text-align:right;">Deadline</th></tr>
-          <tr><td>Application opens</td><td class="date">1 Aug</td></tr>
-          <tr><td>Application deadline</td><td class="date">15 Aug</td></tr>
-          <tr><td>Selection results</td><td class="date">17 Aug</td></tr>
-          <tr><td>Fee payment deadline</td><td class="date">19 Aug</td></tr>
-          <tr><td>Program dates</td><td class="date">22–23 Aug</td></tr>
-        </table>
+
+      <div class="pillars-grid">
+        <div class="pillar">
+          <div class="idx">01 — Core Tech</div>
+          <h3>Technical Alignment &amp; Security</h3>
+          <p>Model safety evaluations, adversarial red-teaming, prompt security, and safety alignment — with special
+            emphasis on Indic models and regional language safety.</p>
+        </div>
+        <div class="pillar">
+          <div class="idx">02 — Policy</div>
+          <h3>Sovereign Strategy &amp; e-Governance</h3>
+          <p>Macro tech policy, sovereign compute infrastructure, and data privacy law — exploring how public
+            institutions can use AI for governance and civic service delivery safely.</p>
+        </div>
+        <div class="pillar">
+          <div class="idx">03 — Impact</div>
+          <h3>Real-World Deployment</h3>
+          <p>Practical, scalable AI for public good — rural healthcare diagnostics, agricultural forecasting, education,
+            and bridging the digital divide across 22+ regional languages.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="cta">
-  <div class="wrap">
-    <div class="cta-dot"></div>
-    <h2>Ready to think<br>like an AI consultant?</h2>
-    <p>For any queries — contact@isailab.com</p>
-    <a class="btn-primary" href="mailto:contact@isailab.com">Apply for the bootcamp →</a>
-  </div>
-</section>
+  <section id="bootcamp">
+    <div class="wrap">
+      <div class="bc-hero">
+        <div class="bc-orbit"></div>
+        <div class="bc-inner">
+          <div class="eyebrow">Chapter one · Indo Secure AI Labs presents</div>
+          <h2>The AI Advantage. <em>Bootcamp</em></h2>
+          <p>Making Business Smarter with AI — a 2-day immersive program where high school students step into the role
+            of AI consultants. Think. Build. Pitch.</p>
+          <div class="bc-badges">
+            <div class="badge"><b>Who</b>Grades 9–12 · All streams</div>
+            <div class="badge"><b>Format</b>2-day, in-person</div>
+            <div class="badge"><b>Location</b>IIIT Delhi</div>
+            <div class="badge"><b>Dates</b>22–23 Aug</div>
+          </div>
+        </div>
+      </div>
 
-<footer>
-  <div class="wrap footer-inner">
-    <img src="logo.png" alt="ISAiL Logo" class="logo-mark">
-    <div class="footer-links">
-      <a href="#about">About</a>
-      <a href="#pillars">Pillars</a>
-      <a href="#bootcamp">Bootcamp</a>
-      <a href="#admission">Apply</a>
+      <div class="bc-flow">
+        <div class="flow-label">What students will do</div>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="num">01</div>
+            <p>Explore how leading businesses use AI to solve real problems</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">02</div>
+            <p>Diagnose the challenges of a real, everyday business</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">03</div>
+            <p>Research and design an AI-powered improvement plan</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">04</div>
+            <p>Build sample AI-powered deliverables using no-code tools</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">05</div>
+            <p>Pitch their solution to a panel, consultant-style</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule">
+        <div>
+          <div class="day-label">Day one — The Awakening</div>
+          <div class="day-item">
+            <div class="roman">I</div>
+            <div class="txt"><b>The Opening Address</b>
+              <p>A formal welcome into the ISAiL fold, and the first look at what lies ahead.</p>
+            </div>
+          </div>
+          <div class="day-item">
+            <div class="roman">II</div>
+            <div class="txt"><b>The New Rules of Business</b>
+              <p>How AI is quietly rewriting the playbook for how businesses win.</p>
+            </div>
+          </div>
+          <div class="day-item">
+            <div class="roman">III</div>
+            <div class="txt"><b>Where Businesses Struggle</b>
+              <p>Mapping the real pain points hiding beneath the surface of everyday enterprises.</p>
+            </div>
+          </div>
+          <div class="day-item">
+            <div class="roman">IV</div>
+            <div class="txt"><b>The Diagnosis</b>
+              <p>Choosing a real business, and uncovering where it's losing time, money, and customers.</p>
+            </div>
+          </div>
+          <div class="day-item">
+            <div class="roman">V</div>
+            <div class="txt"><b>The Research Sprint</b>
+              <p>Studying how the world's smartest businesses are already solving these problems with AI.</p>
+            </div>
+          </div>
+          <div class="day-item" style="border-bottom:none;">
+            <div class="roman">VI–VII</div>
+            <div class="txt"><b>Designing the Fix &amp; The Trust Factor</b>
+              <p>Drafting an AI-powered solution, then a conversation on responsible AI.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="day-label">Day two — The Transformation</div>
+          <div class="day-item">
+            <div class="roman">VIII</div>
+            <div class="txt"><b>The Makeover Blueprint</b>
+              <p>Finalizing the AI-powered plan that will define the team's solution.</p>
+            </div>
+          </div>
+          <div class="day-item">
+            <div class="roman">IX</div>
+            <div class="txt"><b>The Prototype Lab</b>
+              <p>Bringing the idea to life — building the first tangible pieces of the solution.</p>
+            </div>
+          </div>
+          <div class="day-item">
+            <div class="roman">X</div>
+            <div class="txt"><b>The Art of the Pitch</b>
+              <p>Learning to present like a consultant — with clarity, confidence, and conviction.</p>
+            </div>
+          </div>
+          <div class="day-item">
+            <div class="roman">XI</div>
+            <div class="txt"><b>The Final Rehearsal</b>
+              <p>One last polish before stepping into the spotlight.</p>
+            </div>
+          </div>
+          <div class="day-item">
+            <div class="roman">XII</div>
+            <div class="txt"><b>The Grand Reveal</b>
+              <p>Final pitches, delivered live to a panel — the culmination of two days of work.</p>
+            </div>
+          </div>
+          <div class="day-item" style="border-bottom:none;">
+            <div class="roman">XIII–XIV</div>
+            <div class="txt"><b>Closing Ceremony &amp; Farewell</b>
+              <p>Awards, certificates, and a formal send-off into the ISAiL community.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>© 2026 Indo Secure AI Labs</div>
-  </div>
-</footer>
+  </section>
+
+  <section id="admission">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">How to join</div>
+        <h2>Eligibility</h2>
+        <p>Seats are limited — early application is strongly encouraged. Review of applications may begin before the
+          stated deadline.</p>
+      </div>
+
+      <div class="adm-grid">
+        <div class="elig-card">
+          <h3>Eligibility criteria</h3>
+          <ul>
+            <li>Currently enrolled in Grade 9, 10, 11, or 12 at a recognized school, in any academic stream (Science,
+              Commerce, or Humanities).</li>
+            <li>Have completed Grade 12 (or equivalent) in 2026, and are awaiting or have received results.</li>
+            <li>No prior coding experience, business background, or technical qualification required — candidates are
+              evaluated on curiosity, aptitude, and a one-page Statement of Purpose.</li>
+          </ul>
+        </div>
+        <div>
+          <table class="timeline">
+            <tr>
+              <th>Stage</th>
+              <th style="text-align:right;">Deadline</th>
+            </tr>
+            <tr>
+              <td>Application opens</td>
+              <td class="date">1 Aug</td>
+            </tr>
+            <tr>
+              <td>Application deadline</td>
+              <td class="date">15 Aug</td>
+            </tr>
+            <tr>
+              <td>Selection results</td>
+              <td class="date">17 Aug</td>
+            </tr>
+            <tr>
+              <td>Fee payment deadline</td>
+              <td class="date">19 Aug</td>
+            </tr>
+            <tr>
+              <td>Program dates</td>
+              <td class="date">22–23 Aug</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta">
+    <div class="wrap">
+      <div class="cta-dot"></div>
+      <h2>Ready to think<br>like an AI consultant?</h2>
+      <p>For any queries — contact@isailab.com</p>
+      <a class="btn-primary"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSe-JjywFJakjDjGADqYrpDygKJ-ACJ-_Bp9jHBzuStn1A366Q/viewform?usp=header"
+        target="_blank">Apply for the bootcamp →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <img src="logo_black.png" alt="ISAiL Logo" class="logo-mark">
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#pillars">Pillars</a>
+        <a href="#bootcamp">Bootcamp</a>
+        <a href="#admission">Apply</a>
+      </div>
+      <div>© 2026 Indo Secure AI Labs</div>
+    </div>
+  </footer>
 
 </body>
+
 </html>
