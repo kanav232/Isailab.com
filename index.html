@@ -63,8 +63,7 @@
     border-bottom:1px solid var(--line);
   }
   .nav-inner{max-width:var(--max); margin:0 auto; padding:18px 32px; display:flex; align-items:center; justify-content:space-between;}
-  .logo-mark{display:flex; align-items:baseline; gap:2px; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px; letter-spacing:0.01em;}
-  .logo-mark .dot{color:var(--red);}
+  .logo-mark{height: 38px; width: auto; object-fit: contain;}
   .nav-links{display:flex; gap:36px; font-size:13.5px; font-weight:500;}
   .nav-links a{opacity:0.7; transition:opacity .2s;}
   .nav-links a:hover{opacity:1;}
@@ -244,7 +243,7 @@
 
   footer{background:var(--ink); color:rgba(241,237,230,0.6); padding:48px 0; border-top:1px solid var(--line-light);}
   .footer-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; font-size:13px;}
-  .footer-inner .logo-mark{color:var(--cream);}
+  .footer-inner .logo-mark{filter: brightness(0) invert(1);}
   .footer-links{display:flex; gap:28px;}
   .footer-links a{opacity:0.8; transition:opacity .2s;}
   .footer-links a:hover{opacity:1; color:var(--red);}
@@ -254,12 +253,12 @@
 
 <nav>
   <div class="nav-inner">
-    <div class="logo-mark">ISA<span class="dot">i</span>L</div>
+    <img src="logo.png" alt="ISAiL Logo" class="logo-mark">
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#pillars">Pillars</a>
       <a href="#bootcamp">Bootcamp</a>
-      <a href="#admission">Admission</a>
+      <a href="#admission">Apply</a>
     </div>
     <a class="nav-cta" href="#admission">Apply now →</a>
   </div>
@@ -345,7 +344,7 @@
         <div class="bc-badges">
           <div class="badge"><b>Who</b>Grades 9–12 · All streams</div>
           <div class="badge"><b>Format</b>2-day, in-person</div>
-          <div class="badge"><b>Location</b>IIIT Delhi Labs</div>
+          <div class="badge"><b>Location</b>IIIT Delhi</div>
           <div class="badge"><b>Dates</b>22–23 Aug</div>
         </div>
       </div>
@@ -389,7 +388,7 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">How to join</div>
-      <h2>Eligibility &amp; admission</h2>
+      <h2>Eligibility</h2>
       <p>Seats are limited — early application is strongly encouraged. Review of applications may begin before the stated deadline.</p>
     </div>
 
@@ -404,12 +403,12 @@
       </div>
       <div>
         <table class="timeline">
-          <tr><th>Stage</th><th></th><th style="text-align:right;">Deadline</th></tr>
-          <tr><td>Application opens</td><td>Form + SOP released</td><td class="date">1 Aug</td></tr>
-          <tr><td>Application deadline</td><td>Last date to submit</td><td class="date">15 Aug</td></tr>
-          <tr><td>Selection results</td><td>Notified via email</td><td class="date">17 Aug</td></tr>
-          <tr><td>Fee payment deadline</td><td>Confirm seat via payment</td><td class="date">19 Aug</td></tr>
-          <tr><td>Program dates</td><td>AI Advantage Bootcamp</td><td class="date">22–23 Aug</td></tr>
+          <tr><th>Stage</th><th style="text-align:right;">Deadline</th></tr>
+          <tr><td>Application opens</td><td class="date">1 Aug</td></tr>
+          <tr><td>Application deadline</td><td class="date">15 Aug</td></tr>
+          <tr><td>Selection results</td><td class="date">17 Aug</td></tr>
+          <tr><td>Fee payment deadline</td><td class="date">19 Aug</td></tr>
+          <tr><td>Program dates</td><td class="date">22–23 Aug</td></tr>
         </table>
       </div>
     </div>
@@ -420,19 +419,19 @@
   <div class="wrap">
     <div class="cta-dot"></div>
     <h2>Ready to think<br>like an AI consultant?</h2>
-    <p>contact@isailab.com — ISAiL Admissions Office</p>
+    <p>For any queries — contact@isailab.com</p>
     <a class="btn-primary" href="mailto:contact@isailab.com">Apply for the bootcamp →</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap footer-inner">
-    <div class="logo-mark">ISA<span class="dot">i</span>L</div>
+    <img src="logo.png" alt="ISAiL Logo" class="logo-mark">
     <div class="footer-links">
       <a href="#about">About</a>
       <a href="#pillars">Pillars</a>
       <a href="#bootcamp">Bootcamp</a>
-      <a href="#admission">Admission</a>
+      <a href="#admission">Apply</a>
     </div>
     <div>© 2026 Indo Secure AI Labs</div>
   </div>
