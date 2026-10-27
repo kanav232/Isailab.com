@@ -1,5 +1,5 @@
 /* ---- Paste the Google Apps Script web-app URL here (see form-backend/SETUP.md). ---- */
-const FORM_ENDPOINT = '';
+const FORM_ENDPOINT = 'https://script.google.com/a/macros/isailab.com/s/AKfycbz2qwphGwwlUfXH0JX4XMnW39Dm4q9DjoIyJM2hiEMg-tlxJQEjGG_nzVft2d53o8cw_w/exec';
 
 (function () {
   // Nav
