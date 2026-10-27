@@ -4,12 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Indo Youth AI Leadership Program · ISAiL</title>
+  <title>ISAiL · Indo Secure AI Lab</title>
   <meta name="description"
-    content="A six-day AI leadership program at IIIT Delhi for students of Grades 9 to 12. 26 to 31 December 2026. Presented by ISAiL (Indo Secure AI Lab).">
-  <meta property="og:title" content="Indo Youth AI Leadership Program · ISAiL">
-  <meta property="og:description"
-    content="Where tomorrow's leaders learn to lead with AI. 26–31 December 2026 at IIIT Delhi, for Grades 9 to 12.">
+    content="ISAiL (Indo Secure AI Lab) is a multidisciplinary research and engineering initiative advancing AI that is safe and trustworthy for India, across technical alignment, sovereign strategy and real-world deployment.">
+  <meta property="og:title" content="ISAiL · Indo Secure AI Lab">
+  <meta property="og:description" content="Securing the AI frontier for India's future.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://isailab.com/">
   <meta property="og:image" content="https://isailab.com/assets/og.png">
@@ -23,1703 +22,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
     rel="stylesheet">
-  <style>
-    :root {
-      --paper: #EFEEEA;
-      --paper-2: #E6E5E0;
-      --ink: #1E1E1E;
-      --ink-2: #2A2A2A;
-      --red: #D9423A;
-      --white: #FFFFFF;
-      --muted: #5E5D5A;
-      --muted-light: rgba(239, 238, 234, 0.62);
-      --line: rgba(30, 30, 30, 0.16);
-      --line-light: rgba(239, 238, 234, 0.16);
-      --max: 1200px;
-      --gutter: clamp(20px, 4vw, 40px);
-      --ease: cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px;
-    }
-
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: 'Jost', system-ui, sans-serif;
-      font-weight: 300;
-      font-size: 17px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    ::selection {
-      background: var(--red);
-      color: var(--paper);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    button {
-      font: inherit;
-      color: inherit;
-      background: none;
-      border: 0;
-      cursor: pointer;
-    }
-
-    :focus-visible {
-      outline: 2px solid var(--red);
-      outline-offset: 3px;
-    }
-
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-    }
-
-    /* ---------- type primitives (from the post system) ---------- */
-    .label {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-    }
-
-    .dot-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .dot-label::before {
-      content: '';
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--red);
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-weight: 500;
-      letter-spacing: -0.015em;
-      line-height: 1.04;
-    }
-
-    .stop {
-      color: var(--red);
-    }
-
-    .lede {
-      font-size: clamp(18px, 1.6vw, 21px);
-      line-height: 1.55;
-      color: var(--muted);
-    }
-
-    .on-dark .lede {
-      color: var(--muted-light);
-    }
-
-    /* section header row, like the post corner labels */
-    .sec-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 18px;
-      margin-bottom: clamp(40px, 6vw, 72px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .on-dark .sec-top {
-      border-color: var(--line-light);
-    }
-
-    .sec-top .count {
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      opacity: 0.6;
-    }
-
-    section {
-      padding: clamp(80px, 11vw, 140px) 0;
-      position: relative;
-    }
-
-    .on-dark {
-      background: var(--ink);
-      color: var(--paper);
-    }
-
-    .h-xl {
-      font-size: clamp(44px, 7.4vw, 104px);
-    }
-
-    .h-lg {
-      font-size: clamp(36px, 5.2vw, 68px);
-    }
-
-    .h-md {
-      font-size: clamp(28px, 3.4vw, 44px);
-    }
-
-    /* ---------- buttons ---------- */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px 26px;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      border: 1px solid currentColor;
-      transition: background .25s, color .25s, border-color .25s;
-    }
-
-    .btn .arr {
-      transition: transform .3s var(--ease);
-    }
-
-    .btn:hover .arr {
-      transform: translateX(5px);
-    }
-
-    .btn-solid {
-      background: var(--red);
-      border-color: var(--red);
-      color: var(--white);
-    }
-
-    .btn-solid:hover {
-      background: var(--ink);
-      border-color: var(--ink);
-    }
-
-    .on-dark .btn-solid:hover {
-      background: var(--paper);
-      border-color: var(--paper);
-      color: var(--ink);
-    }
-
-    .btn-line:hover {
-      background: var(--ink);
-      color: var(--paper);
-      border-color: var(--ink);
-    }
-
-    .on-dark .btn-line:hover {
-      background: var(--paper);
-      color: var(--ink);
-    }
-
-    .arrow {
-      display: inline-block;
-      width: 34px;
-      height: 10px;
-      position: relative;
-    }
-
-    .arrow::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 1px;
-      top: 50%;
-      height: 1.2px;
-      background: currentColor;
-    }
-
-    .arrow::after {
-      content: '';
-      position: absolute;
-      right: 1px;
-      top: 50%;
-      width: 7px;
-      height: 7px;
-      border-top: 1.2px solid currentColor;
-      border-right: 1.2px solid currentColor;
-      transform: translateY(-50%) rotate(45deg);
-    }
-
-    /* ---------- nav ---------- */
-    .nav {
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 50;
-      transition: background .3s, border-color .3s;
-      border-bottom: 1px solid transparent;
-    }
-
-    .nav.scrolled {
-      background: rgba(239, 238, 234, 0.9);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-color: var(--line);
-    }
-
-    .nav-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 16px var(--gutter);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .nav-logo img {
-      height: 30px;
-      width: auto;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-    }
-
-    .nav-links a {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      position: relative;
-      padding: 6px 0;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 100%;
-      bottom: 0;
-      height: 1.5px;
-      background: var(--red);
-      transition: right .3s var(--ease);
-    }
-
-    .nav-links a:hover::after {
-      right: 0;
-    }
-
-    .nav .btn {
-      padding: 11px 18px;
-      font-size: 12px;
-    }
-
-    .menu-btn {
-      display: none;
-      width: 40px;
-      height: 40px;
-      position: relative;
-    }
-
-    .menu-btn span {
-      position: absolute;
-      left: 9px;
-      right: 9px;
-      height: 1.5px;
-      background: var(--ink);
-      transition: transform .3s, top .3s;
-    }
-
-    .menu-btn span:nth-child(1) {
-      top: 15px;
-    }
-
-    .menu-btn span:nth-child(2) {
-      top: 24px;
-    }
-
-    .nav.open .menu-btn span:nth-child(1) {
-      top: 19px;
-      transform: rotate(45deg);
-    }
-
-    .nav.open .menu-btn span:nth-child(2) {
-      top: 19px;
-      transform: rotate(-45deg);
-    }
-
-    @media (max-width: 960px) {
-      .nav-links {
-        display: none;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .nav .btn {
-        display: none;
-      }
-
-      .nav.open {
-        background: var(--paper);
-        border-color: var(--line);
-      }
-
-      .nav.open .nav-links {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--paper);
-        padding: 8px var(--gutter) 24px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .nav.open .nav-links a {
-        padding: 16px 0;
-        border-bottom: 1px solid var(--line);
-        font-size: 13px;
-      }
-
-      .nav.open .nav-links a::after {
-        display: none;
-      }
-    }
-
-    /* ---------- hero ---------- */
-    .hero {
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      padding: 110px 0 40px;
-      overflow: hidden;
-    }
-
-    .hero .wrap {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-
-    .hero-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      color: var(--muted);
-    }
-
-    .hero-body {
-      flex: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
-      gap: 48px;
-      align-items: center;
-      padding: 48px 0;
-    }
-
-    .prompt {
-      display: inline-flex;
-      align-items: center;
-      background: var(--white);
-      padding: 14px 20px;
-      font-size: clamp(15px, 1.4vw, 18px);
-      font-weight: 400;
-      margin-bottom: 32px;
-      min-height: 54px;
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
-    }
-
-    .caret {
-      display: inline-block;
-      width: 2px;
-      height: 1.15em;
-      background: var(--red);
-      margin-left: 2px;
-      animation: blink 1s steps(1) infinite;
-    }
-
-    @keyframes blink {
-      50% {
-        opacity: 0;
-      }
-    }
-
-    .hero h1 {
-      max-width: 13ch;
-    }
-
-    .hero .lede {
-      max-width: 34em;
-      margin-top: 30px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 40px;
-    }
-
-    .hero-orb {
-      justify-self: center;
-      width: min(100%, 360px);
-      aspect-ratio: 1;
-      position: relative;
-    }
-
-    .hero-orb .sun {
-      position: absolute;
-      inset: 18%;
-      border-radius: 50%;
-      background: var(--red);
-      animation: breathe 6s ease-in-out infinite;
-    }
-
-    .hero-orb .ring {
-      position: absolute;
-      inset: 0;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-    }
-
-    .hero-orb .ring.r2 {
-      inset: 8%;
-      border-style: dashed;
-      animation: spin 60s linear infinite;
-    }
-
-    .hero-orb .tag {
-      position: absolute;
-      background: var(--white);
-      padding: 8px 14px;
-      font-size: 13px;
-      font-weight: 400;
-      white-space: nowrap;
-      border: 1px solid var(--line);
-    }
-
-    .hero-orb .tag.t1 {
-      top: 6%;
-      left: -6%;
-    }
-
-    .hero-orb .tag.t2 {
-      bottom: 14%;
-      right: -8%;
-    }
-
-    .hero-orb .tag.t3 {
-      bottom: -2%;
-      left: 6%;
-      background: var(--ink);
-      color: var(--paper);
-      border-color: var(--ink);
-    }
-
-    @keyframes breathe {
-
-      0%,
-      100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.04);
-      }
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--line);
-    }
-
-    .hero-meta>div {
-      padding: 20px 20px 0 0;
-    }
-
-    .hero-meta .k {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .hero-meta .v {
-      font-size: 19px;
-      font-weight: 400;
-      margin-top: 4px;
-      line-height: 1.3;
-    }
-
-    @media (max-width: 900px) {
-      .hero-body {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-orb {
-        display: none;
-      }
-
-      .hero-meta {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    /* ---------- manifesto ---------- */
-    .manifesto-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: clamp(40px, 7vw, 100px);
-      align-items: end;
-    }
-
-    .manifesto p+p {
-      margin-top: 18px;
-    }
-
-    .fields {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 36px;
-    }
-
-    .chip {
-      border: 1px solid currentColor;
-      padding: 6px 13px;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 1.3;
-    }
-
-    .on-dark .chip {
-      border-color: var(--line-light);
-      color: var(--paper);
-    }
-
-    .chip.red {
-      background: var(--red);
-      border-color: var(--red);
-      color: var(--white);
-    }
-
-    .rare {
-      margin-top: clamp(64px, 9vw, 110px);
-      padding-top: 40px;
-      border-top: 1px solid var(--line-light);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-
-    .rare .q {
-      font-size: clamp(26px, 3.2vw, 40px);
-      font-weight: 400;
-      line-height: 1.15;
-    }
-
-    .rare .q.dim {
-      color: rgba(239, 238, 234, 0.45);
-    }
-
-    .leadership {
-      margin-top: 48px;
-      font-size: clamp(18px, 1.6vw, 21px);
-      max-width: 46em;
-      color: var(--muted-light);
-    }
-
-    .leadership b {
-      color: var(--paper);
-      font-weight: 500;
-    }
-
-    @media (max-width: 860px) {
-
-      .manifesto-grid,
-      .rare {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ---------- introducing ---------- */
-    .not-list {
-      list-style: none;
-      margin-top: 8px;
-    }
-
-    .not-list li {
-      font-size: clamp(30px, 4.6vw, 60px);
-      font-weight: 500;
-      line-height: 1.12;
-      letter-spacing: -0.015em;
-    }
-
-    .strike {
-      position: relative;
-      color: rgba(30, 30, 30, 0.38);
-    }
-
-    .strike::after {
-      content: '';
-      position: absolute;
-      left: -2%;
-      top: 54%;
-      height: 0.09em;
-      background: var(--red);
-      width: 0;
-      transition: width .8s var(--ease);
-    }
-
-    .in .strike::after {
-      width: 104%;
-    }
-
-    .not-list li:nth-child(2) .strike::after {
-      transition-delay: .25s;
-    }
-
-    .not-list li:nth-child(3) .strike::after {
-      transition-delay: .5s;
-    }
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: clamp(40px, 7vw, 100px);
-      align-items: start;
-    }
-
-    .intro-copy p {
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .intro-copy p+p {
-      margin-top: 18px;
-    }
-
-    .intro-copy .first {
-      color: var(--ink);
-      font-size: clamp(22px, 2.2vw, 28px);
-      line-height: 1.3;
-      font-weight: 400;
-    }
-
-    .irl {
-      background: var(--white);
-      padding: 22px 24px;
-      margin-top: 32px;
-    }
-
-    .irl .label {
-      font-size: 10.5px;
-      color: var(--muted);
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .irl p {
-      color: var(--ink) !important;
-      font-size: 16px !important;
-      font-weight: 400;
-    }
-
-    @media (max-width: 860px) {
-      .intro-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ---------- six days (name-style rows) ---------- */
-    .feature-row {
-      display: grid;
-      grid-template-columns: 120px minmax(0, 1fr) minmax(0, 1.2fr);
-      gap: 32px;
-      padding: 34px 0;
-      border-bottom: 1px solid var(--line);
-      align-items: baseline;
-    }
-
-    .feature-row:first-of-type {
-      border-top: 1px solid var(--line);
-    }
-
-    .feature-row .n {
-      font-size: clamp(48px, 5vw, 68px);
-      font-weight: 300;
-      line-height: 0.9;
-      color: var(--red);
-    }
-
-    .feature-row h3 {
-      font-size: clamp(22px, 2.2vw, 28px);
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
-
-    .feature-row p {
-      color: var(--muted);
-    }
-
-    .feature-row:hover h3 {
-      color: var(--red);
-    }
-
-    .feature-row h3 {
-      transition: color .25s;
-    }
-
-    @media (max-width: 760px) {
-      .feature-row {
-        grid-template-columns: 64px 1fr;
-        gap: 10px 20px;
-      }
-
-      .feature-row p {
-        grid-column: 2;
-      }
-
-      .feature-row .n {
-        grid-row: span 2;
-      }
-    }
-
-    /* ---------- curriculum (glossary cards) ---------- */
-    #learn {
-      background: var(--paper-2);
-    }
-
-    .learn-head {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 40px;
-      align-items: end;
-      margin-bottom: 56px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr));
-      gap: 16px;
-    }
-
-    @media (max-width: 860px) {
-      .learn-head {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-    }
-
-    @media (min-width: 1140px) {
-      .cards {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .card {
-      background: var(--paper);
-      padding: 30px 28px 32px;
-      display: flex;
-      flex-direction: column;
-      min-height: 260px;
-      transition: transform .35s var(--ease), box-shadow .35s var(--ease);
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(30, 30, 30, 0.08);
-    }
-
-    .card .label {
-      font-size: 11px;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .card h3 {
-      font-size: clamp(26px, 2.4vw, 32px);
-      margin-top: 28px;
-    }
-
-    .card .rule {
-      height: 1px;
-      background: var(--line);
-      margin: 20px 0 16px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 16.5px;
-    }
-
-    .card.dark {
-      background: var(--ink);
-      color: var(--paper);
-      justify-content: space-between;
-    }
-
-    .card.dark p {
-      color: var(--muted-light);
-    }
-
-    .card.dark h3 {
-      margin-top: 0;
-    }
-
-    /* ---------- who you become ---------- */
-    .become {
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: clamp(40px, 7vw, 100px);
-    }
-
-    .become-list {
-      list-style: none;
-    }
-
-    .become-list li {
-      display: grid;
-      grid-template-columns: 22px 1fr;
-      gap: 8px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line-light);
-      font-size: 18px;
-      color: var(--muted-light);
-    }
-
-    .become-list li:first-child {
-      border-top: 1px solid var(--line-light);
-    }
-
-    .become-list li::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--red);
-      margin-top: 10px;
-    }
-
-    .become-list b {
-      color: var(--paper);
-      font-weight: 500;
-    }
-
-    .become .sticky {
-      position: sticky;
-      top: 120px;
-      align-self: start;
-    }
-
-    .become .closer {
-      margin-top: 40px;
-      font-size: clamp(22px, 2.2vw, 28px);
-      font-weight: 400;
-      line-height: 1.3;
-    }
-
-    @media (max-width: 860px) {
-      .become {
-        grid-template-columns: 1fr;
-      }
-
-      .become .sticky {
-        position: static;
-      }
-    }
-
-    /* ---------- schedule ---------- */
-    .sched-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 32px;
-      flex-wrap: wrap;
-      margin-bottom: 48px;
-    }
-
-    .hours {
-      font-size: 15px;
-      color: var(--muted);
-      max-width: 26em;
-    }
-
-    .hours b {
-      color: var(--ink);
-      font-weight: 500;
-    }
-
-    .tabs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-
-    .tab {
-      border: 1px solid var(--ink);
-      padding: 10px 18px;
-      font-size: 15px;
-      font-weight: 400;
-      transition: background .2s, color .2s;
-    }
-
-    .tab:hover {
-      background: var(--white);
-    }
-
-    .tab[aria-selected="true"] {
-      background: var(--red);
-      border-color: var(--red);
-      color: var(--white);
-    }
-
-    .day {
-      display: grid;
-      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-      background: var(--white);
-    }
-
-    .js .day[hidden] {
-      display: none;
-    }
-
-    .day-side {
-      background: var(--ink);
-      color: var(--paper);
-      padding: clamp(28px, 4vw, 48px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 40px;
-      min-height: 360px;
-    }
-
-    .day-side .big {
-      font-size: clamp(90px, 12vw, 160px);
-      font-weight: 300;
-      line-height: 0.85;
-      color: var(--red);
-    }
-
-    .day-side h3 {
-      font-size: clamp(28px, 3vw, 40px);
-    }
-
-    .day-list {
-      list-style: none;
-      padding: clamp(16px, 3vw, 32px) clamp(24px, 4vw, 48px);
-    }
-
-    .day-list li {
-      display: grid;
-      grid-template-columns: 40px 1fr;
-      gap: 12px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .day-list li:last-child {
-      border-bottom: none;
-    }
-
-    .day-list .i {
-      font-size: 12px;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      padding-top: 5px;
-    }
-
-    .day-list b {
-      font-weight: 500;
-      font-size: 18px;
-      display: block;
-      line-height: 1.35;
-    }
-
-    .day-list span {
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .day-list li.hl b {
-      color: var(--red);
-    }
-
-    .js-only {
-      display: none;
-    }
-
-    .js .js-only {
-      display: flex;
-    }
-
-    html:not(.js) .day+.day {
-      margin-top: 16px;
-    }
-
-    @media (max-width: 800px) {
-      .day {
-        grid-template-columns: 1fr;
-      }
-
-      .day-side {
-        min-height: 0;
-        flex-direction: row;
-        align-items: end;
-      }
-
-      .day-side .big {
-        font-size: 84px;
-      }
-    }
-
-    /* ---------- apply ---------- */
-    .apply-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: clamp(40px, 6vw, 80px);
-    }
-
-    .sheet {
-      list-style: none;
-    }
-
-    .sheet li {
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 20px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line-light);
-    }
-
-    .sheet li:first-child {
-      border-top: 1px solid var(--line-light);
-    }
-
-    .sheet .k {
-      font-weight: 500;
-      color: var(--paper);
-    }
-
-    .sheet .v {
-      color: var(--muted-light);
-    }
-
-    .elig {
-      list-style: none;
-      margin-top: 28px;
-    }
-
-    .elig li {
-      position: relative;
-      padding: 0 0 16px 24px;
-      color: var(--muted-light);
-      font-size: 17.5px;
-    }
-
-    .elig li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 11px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--red);
-    }
-
-    .note-box {
-      border: 1px solid var(--line-light);
-      padding: 22px 24px;
-      margin-top: 24px;
-    }
-
-    .note-box p {
-      color: var(--muted-light);
-      font-size: 16px;
-    }
-
-    .note-box p+p {
-      margin-top: 8px;
-    }
-
-    .note-box b {
-      color: var(--paper);
-      font-weight: 500;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--line-light);
-      border: 1px solid var(--line-light);
-      margin-top: clamp(64px, 8vw, 96px);
-    }
-
-    .step {
-      background: var(--ink);
-      padding: 32px 28px 36px;
-    }
-
-    .step .n {
-      font-size: 64px;
-      font-weight: 300;
-      line-height: 1;
-      color: var(--red);
-    }
-
-    .step h3 {
-      font-size: 24px;
-      margin: 22px 0 10px;
-    }
-
-    .step p {
-      color: var(--muted-light);
-      font-size: 16px;
-    }
-
-    .apply-cta {
-      margin-top: 48px;
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .apply-cta .small {
-      color: var(--muted-light);
-      font-size: 15px;
-    }
-
-    @media (max-width: 860px) {
-
-      .apply-grid,
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .sheet li {
-        grid-template-columns: 1fr;
-        gap: 2px;
-      }
-    }
-
-    /* ---------- mentors + campus ---------- */
-    .two-up {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .panel {
-      background: var(--white);
-      padding: clamp(28px, 4vw, 48px);
-    }
-
-    .panel h2 {
-      margin: 24px 0 18px;
-    }
-
-    .panel p {
-      color: var(--muted);
-    }
-
-    .panel .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 28px;
-    }
-
-    .tba {
-      margin-top: 28px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 15px;
-      color: var(--muted);
-    }
-
-    .tba::before {
-      content: '';
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--red);
-      animation: blink 1.6s steps(1) infinite;
-    }
-
-    .facts {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid var(--line);
-      margin-top: 32px;
-    }
-
-    .facts div {
-      padding: 18px 12px 0 0;
-    }
-
-    .facts .v {
-      font-size: 30px;
-      font-weight: 400;
-      line-height: 1;
-    }
-
-    .facts .k {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 6px;
-    }
-
-    @media (max-width: 860px) {
-      .two-up {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ---------- about ISAiL ---------- */
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: clamp(40px, 7vw, 100px);
-    }
-
-    .name-rows {
-      list-style: none;
-    }
-
-    .name-rows li {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      align-items: center;
-      gap: 20px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .name-rows .L {
-      font-size: 52px;
-      font-weight: 400;
-      line-height: 1;
-    }
-
-    .name-rows .L i {
-      font-style: normal;
-      color: var(--red);
-    }
-
-    .name-rows b {
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      font-size: 15px;
-    }
-
-    .name-rows span span {
-      display: block;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .about-copy p {
-      color: var(--muted);
-    }
-
-    .about-copy p+p {
-      margin-top: 16px;
-    }
-
-    .about-copy .belief {
-      font-size: clamp(22px, 2.2vw, 28px);
-      line-height: 1.3;
-      font-weight: 400;
-      color: var(--ink);
-      border-left: 2px solid var(--red);
-      padding-left: 20px;
-      margin: 28px 0;
-    }
-
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: clamp(56px, 7vw, 88px);
-    }
-
-    .pillar {
-      background: var(--white);
-      padding: 30px 28px 34px;
-    }
-
-    .pillar .label {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .pillar h3 {
-      font-size: 26px;
-      margin: 26px 0 14px;
-    }
-
-    .pillar p {
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .stewardship {
-      margin-top: 16px;
-      background: var(--ink);
-      color: var(--paper);
-      padding: clamp(28px, 4vw, 44px);
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 32px;
-      align-items: center;
-    }
-
-    .stewardship .h-md {
-      white-space: nowrap;
-    }
-
-    .stewardship p {
-      color: var(--muted-light);
-    }
-
-    @media (max-width: 860px) {
-
-      .about-grid,
-      .pillars,
-      .stewardship {
-        grid-template-columns: 1fr;
-      }
-
-      .stewardship .h-md {
-        white-space: normal;
-      }
-    }
-
-    /* ---------- feed ---------- */
-    .feed-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-    }
-
-    .feed {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(240px, 280px);
-      gap: 16px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 18px;
-      scrollbar-width: thin;
-      scrollbar-color: var(--red) transparent;
-    }
-
-    .feed a {
-      scroll-snap-align: start;
-    }
-
-    .feed img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 4/5;
-      object-fit: cover;
-      transition: transform .4s var(--ease);
-      border: 1px solid var(--line);
-    }
-
-    .feed a:hover img {
-      transform: translateY(-4px);
-    }
-
-    .feed .cap {
-      font-size: 15px;
-      margin-top: 12px;
-      color: var(--muted);
-    }
-
-    /* ---------- faq ---------- */
-    .faq-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-      gap: clamp(40px, 7vw, 100px);
-    }
-
-    details {
-      border-bottom: 1px solid var(--line);
-    }
-
-    details:first-of-type {
-      border-top: 1px solid var(--line);
-    }
-
-    summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 24px 0;
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      font-size: clamp(19px, 1.7vw, 22px);
-      font-weight: 400;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary .pm {
-      flex-shrink: 0;
-      width: 18px;
-      height: 18px;
-      position: relative;
-      margin-top: 6px;
-    }
-
-    summary .pm::before,
-    summary .pm::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 50%;
-      height: 1.5px;
-      background: var(--ink);
-      transition: transform .3s var(--ease), background .3s;
-    }
-
-    summary .pm::after {
-      transform: rotate(90deg);
-    }
-
-    details[open] summary .pm::after {
-      transform: rotate(0);
-    }
-
-    details[open] summary .pm::before {
-      background: var(--red);
-    }
-
-    details p {
-      color: var(--muted);
-      padding: 0 40px 26px 0;
-      max-width: 40em;
-    }
-
-    details p b {
-      color: var(--ink);
-      font-weight: 500;
-    }
-
-    @media (max-width: 860px) {
-      .faq-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ---------- final cta ---------- */
-    .final {
-      text-align: center;
-      padding: clamp(100px, 14vw, 180px) 0;
-    }
-
-    .final .sun {
-      width: 92px;
-      height: 92px;
-      border-radius: 50%;
-      background: var(--red);
-      margin: 0 auto 44px;
-      animation: breathe 6s ease-in-out infinite;
-    }
-
-    .final h2 {
-      font-weight: 300;
-      max-width: 14ch;
-      margin: 0 auto;
-    }
-
-    .final .lede {
-      margin: 26px auto 0;
-      max-width: 30em;
-    }
-
-    .final .hero-actions {
-      justify-content: center;
-    }
-
-    /* ---------- footer ---------- */
-    footer {
-      background: var(--ink);
-      color: var(--muted-light);
-      border-top: 1px solid var(--line-light);
-      padding: 56px 0 40px;
-      font-size: 15px;
-    }
-
-    .foot-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr;
-      gap: 40px;
-    }
-
-    .foot-brand img {
-      height: 34px;
-      width: auto;
-    }
-
-    .foot-brand .label {
-      font-size: 10.5px;
-      letter-spacing: 0.4em;
-      margin-top: 12px;
-      color: var(--paper);
-    }
-
-    .foot-brand p {
-      margin-top: 18px;
-      max-width: 22em;
-    }
-
-    footer h4 {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--paper);
-      margin-bottom: 14px;
-    }
-
-    footer ul {
-      list-style: none;
-    }
-
-    footer li {
-      padding: 4px 0;
-    }
-
-    footer a:hover {
-      color: var(--red);
-    }
-
-    .foot-bottom {
-      margin-top: 48px;
-      padding-top: 22px;
-      border-top: 1px solid var(--line-light);
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      font-size: 13px;
-    }
-
-    @media (max-width: 760px) {
-      .foot-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ---------- reveal ---------- */
-    .js .rv {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .9s var(--ease), transform .9s var(--ease);
-    }
-
-    .js .rv.in {
-      opacity: 1;
-      transform: none;
-    }
-
-    .js .rv.d1 {
-      transition-delay: .08s;
-    }
-
-    .js .rv.d2 {
-      transition-delay: .16s;
-    }
-
-    .js .rv.d3 {
-      transition-delay: .24s;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-
-      .js .rv {
-        opacity: 1;
-        transform: none;
-      }
-
-      .strike::after {
-        width: 104% !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/site.css?v=5">
 </head>
 
-<body>
-  
+<body class="has-announce">
 
   <!-- ================= NAV ================= -->
   <nav class="nav" id="nav" aria-label="Main">
+    <a class="announce" href="youth-ai-leadership.html">
+      <span class="announce-dot" aria-hidden="true"></span>
+      <span><b>Applications open</b><span class="announce-long"> · Indo Youth AI Leadership Program · 26–31 Dec 2026,
+          IIIT Delhi</span><span class="announce-short"> · Youth AI Leadership Program</span></span>
+      <span class="arrow" aria-hidden="true"></span>
+    </a>
     <div class="nav-inner">
-      <a href="#top" class="nav-logo" aria-label="ISAiL home"><img src="assets/logo-dark.png" alt="ISAiL"
-          width="64" height="30"></a>
+      <a href="#top" class="nav-logo" aria-label="ISAiL home"><img src="assets/logo-dark.png" alt="ISAiL" width="64"
+          height="30"></a>
       <div class="nav-links" id="navLinks">
-        <a href="#program">Program</a>
-        <a href="#learn">Curriculum</a>
-        <a href="#schedule">Schedule</a>
-        <a href="#apply">Apply</a>
-        <a href="#isail">About ISAiL</a>
-        <a href="#faq">FAQ</a>
+        <a href="#about">About</a>
+        <a href="#work">What we do</a>
+        <a href="#programs">Programs</a>
+        <a href="#learn">Learn</a>
+        <a href="#contact">Contact</a>
       </div>
-      <a class="btn btn-solid" href="#apply" data-apply>Apply <span class="arrow" aria-hidden="true"></span></a>
+      <a class="btn btn-line" href="#contact">Work with us</a>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"
         aria-controls="navLinks"><span></span><span></span></button>
     </div>
@@ -1729,21 +55,21 @@
   <header class="hero" id="top">
     <div class="wrap">
       <div class="hero-top label">
-        <span>Indo Youth AI Leadership Program</span>
-        <span>26 – 31 Dec 2026</span>
+        <span>Indo Secure AI Lab</span>
+        <span>Research · Engineering · Policy</span>
       </div>
 
       <div class="hero-body">
         <div>
-          <div class="prompt rv" aria-hidden="true"><span id="typed">Who will lead the age of AI?</span><span
-              class="caret"></span></div>
-          <h1 class="h-xl rv d1">Where tomorrow's leaders learn to lead with AI<span class="stop">.</span></h1>
-          <p class="lede rv d2">A selective six-day leadership experience at IIIT Delhi for students of Grades 9 to 12.
-            Presented by ISAiL, the Indo Secure AI Lab.</p>
+          <div class="prompt rv" aria-hidden="true"><span id="typed"
+              data-lines='["Who will build AI safely?","Who will govern it wisely?","Who will deploy it responsibly?"]'>Who
+              will build AI safely?</span><span class="caret"></span></div>
+          <h1 class="h-xl rv d1">Securing the AI frontier for India's future<span class="stop">.</span></h1>
+          <p class="lede rv d2">ISAiL is a multidisciplinary research and engineering initiative advancing AI that is
+            safe, trustworthy and strategically sound. Built in India, for India.</p>
           <div class="hero-actions rv d3">
-            <a class="btn btn-solid" href="#apply" data-apply>Apply now <span class="arrow"
-                aria-hidden="true"></span></a>
-            <a class="btn btn-line" href="#schedule">See the six days</a>
+            <a class="btn btn-solid" href="#work">What we do <span class="arrow" aria-hidden="true"></span></a>
+            <a class="btn btn-line" href="#programs">Our programs</a>
           </div>
         </div>
 
@@ -1751,549 +77,58 @@
           <div class="ring"></div>
           <div class="ring r2"></div>
           <div class="sun"></div>
-          <div class="tag t1">Think with AI</div>
-          <div class="tag t2">Lead with integrity</div>
-          <div class="tag t3">Pitch Summit · Day 6</div>
+          <div class="tag t1">Red-teaming</div>
+          <div class="tag t2">22+ Indic languages</div>
+          <div class="tag t3">AI for public good</div>
         </div>
       </div>
 
-      <div class="hero-meta rv">
-        <div>
-          <div class="k">Dates</div>
-          <div class="v">26 – 31 Dec 2026</div>
-        </div>
-        <div>
-          <div class="k">Venue</div>
-          <div class="v">IIIT Delhi, New Delhi</div>
-        </div>
-        <div>
-          <div class="k">For</div>
-          <div class="v">Grades 9 to 12</div>
-        </div>
-        <div>
-          <div class="k">Admission</div>
-          <div class="v">Selective</div>
-        </div>
+      <div class="hero-meta three rv">
+        <a href="#work">
+          <div class="k">Pillar 01</div>
+          <div class="v">Technical alignment &amp; security</div>
+        </a>
+        <a href="#work">
+          <div class="k">Pillar 02</div>
+          <div class="v">Sovereign strategy &amp; e-governance</div>
+        </a>
+        <a href="#work">
+          <div class="k">Pillar 03</div>
+          <div class="v">Real-world deployment</div>
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- ================= WHY ================= -->
-  <section class="on-dark" id="why">
+  <!-- ================= ABOUT ================= -->
+  <section class="on-dark" id="about">
     <div class="wrap">
-      <div class="sec-top label"><span>Why now</span><span class="count">01 / 08</span></div>
+      <div class="sec-top label"><span>Why we exist</span><span class="count">01 / 05</span></div>
 
-      <div class="manifesto-grid">
-        <h2 class="h-lg rv">The future will be led by those who lead with AI<span class="stop">.</span></h2>
-        <div class="manifesto rv d1">
-          <p class="lede">AI is rewriting the rules of the world. It creates art and music, writes code, designs
-            products, diagnoses disease, runs businesses, powers cities and, more and more, carries out entire tasks on
-            its own.</p>
-          <p class="lede">Every field a student might step into is being transformed by it.</p>
-          <div class="fields" aria-label="Fields transformed by AI">
-            <span class="chip">Medicine</span><span class="chip">Law</span><span class="chip">Design</span><span
-              class="chip">Finance</span><span class="chip">Science</span><span class="chip">Technology</span><span
-              class="chip red">Entrepreneurship</span>
-          </div>
-        </div>
-      </div>
+      <p class="big-quote rv">The question is no longer whether AI will define our future, but who will <span>build it
+          safely</span>, <span>govern it wisely</span> and <span>deploy it responsibly</span><span
+          class="stop">.</span></p>
 
       <div class="rare">
-        <p class="q dim rv">Knowing how to use AI will be common.</p>
-        <p class="q rv d1">Knowing how to lead with it will be rare<span class="stop">.</span></p>
-      </div>
-      <p class="leadership rv">The leaders of tomorrow will direct AI towards what matters, make wise decisions with it,
-        bring people and AI together, and do it all with integrity. <b>That is AI leadership.</b> It is the defining
-        skill of the next generation, and it can be learned, starting now.</p>
-    </div>
-  </section>
-
-  <!-- ================= PROGRAM ================= -->
-  <section id="program">
-    <div class="wrap">
-      <div class="sec-top label"><span>Introducing the program</span><span class="count">02 / 08</span></div>
-
-      <div class="intro-grid">
-        <div>
-          <p class="label dot-label rv" style="margin-bottom:22px;">This is not</p>
-          <ul class="not-list rv">
-            <li><span class="strike">a summer class</span></li>
-            <li><span class="strike">a coding course</span></li>
-            <li><span class="strike">a lecture series</span><span class="stop">.</span></li>
-          </ul>
-        </div>
-        <div class="intro-copy rv d1">
-          <p class="first">A program for the generation that will lead the age of AI.</p>
-          <p style="margin-top:22px;">The Indo Youth AI Leadership Program is a six-day leadership experience at IIIT
-            Delhi, one of India's leading institutes for computing. It brings together driven students from across
-            India and gives them something few young people ever get: the chance to think, create, decide and lead
-            with AI, guided by the people who are building the future.</p>
-          <div class="irl">
-            <span class="label">What it is</span>
-            <p>A selective program with a rigorous selection process, a real university campus, and an experience
-              shaped by an AI research lab working at the frontier of safe and trustworthy AI for India.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SIX DAYS ================= -->
-  <section id="experience" style="padding-top:0;">
-    <div class="wrap">
-      <div class="sec-top label"><span>The experience</span><span class="count">03 / 08</span></div>
-      <h2 class="h-lg rv" style="max-width:12ch; margin-bottom:56px;">Six days that feel like the future<span
-          class="stop">.</span></h2>
-
-      <div class="feature-row rv">
-        <div class="n">01</div>
-        <h3>Learn where the future is built</h3>
-        <p>For six days, the campus of IIIT Delhi becomes your classroom: its research labs, its innovation spaces and
-          the energy of university life.</p>
-      </div>
-      <div class="feature-row rv">
-        <div class="n">02</div>
-        <h3>Learn from the people shaping AI</h3>
-        <p>Masterclasses by faculty, AI researchers, founders and industry leaders, and candid conversations with young
-          founders who started exactly where you are now.</p>
-      </div>
-      <div class="feature-row rv">
-        <div class="n">03</div>
-        <h3>Create with the most powerful tools of our time</h3>
-        <p>In studios and labs, ideas become prototypes, with AI as your creative partner and expert mentors by your
-          side. See AI at work in the real world beyond campus, and learn to lead it with integrity from a lab
-          dedicated to making AI safe and trustworthy.</p>
-      </div>
-      <div class="feature-row rv">
-        <div class="n">04</div>
-        <h3>Take the stage</h3>
-        <p>On the final day, every participant steps onto the stage of the Pitch Summit to present their ideas before a
-          jury of experts and the chief guest.</p>
-      </div>
-      <div class="feature-row rv">
-        <div class="n">05</div>
-        <h3>Stand among the best</h3>
-        <p>Every participant earns their place through an application and a Group Discussion round, and spends six days
-          among peers as ambitious and curious as they are.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= WHAT YOU WILL LEARN ================= -->
-  <section id="learn">
-    <div class="wrap">
-      <div class="sec-top label"><span>What you will learn</span><span class="count">04 / 08</span></div>
-
-      <div class="learn-head">
-        <h2 class="h-lg rv">Seven parts. One capability<span class="stop">.</span></h2>
-        <p class="lede rv d1">Every part of the program builds one capability: AI leadership. No prior knowledge of AI,
-          coding, business or public speaking is needed.</p>
-      </div>
-
-      <div class="cards">
-        <article class="card rv">
-          <div class="label"><span>Part 01</span><span>Self</span></div>
-          <h3>Know yourself as a leader<span class="stop">.</span></h3>
-          <div class="rule"></div>
-          <p>Your strengths, your style and the role you play in a team that works with AI.</p>
-        </article>
-        <article class="card rv d1">
-          <div class="label"><span>Part 02</span><span>Mind</span></div>
-          <h3>Think with AI<span class="stop">.</span></h3>
-          <div class="rule"></div>
-          <p>What AI can do today, where it falls short, and how to question and check its work.</p>
-        </article>
-        <article class="card rv d2">
-          <div class="label"><span>Part 03</span><span>People</span></div>
-          <h3>Design for people<span class="stop">.</span></h3>
-          <div class="rule"></div>
-          <p>Empathy and design thinking, so that powerful tools serve real human needs.</p>
-        </article>
-        <article class="card rv">
-          <div class="label"><span>Part 04</span><span>Make</span></div>
-          <h3>Create and build with AI<span class="stop">.</span></h3>
-          <div class="rule"></div>
-          <p>Generating ideas, prototyping and refining them, with AI as your creative partner.</p>
-        </article>
-        <article class="card rv d1">
-          <div class="label"><span>Part 05</span><span>Enterprise</span></div>
-          <h3>Decide and build an enterprise<span class="stop">.</span></h3>
-          <div class="rule"></div>
-          <p>Value, business models, brand, pricing and profit, using AI to make sharper decisions.</p>
-        </article>
-        <article class="card rv d2">
-          <div class="label"><span>Part 06</span><span>Ethics</span></div>
-          <h3>Lead with integrity<span class="stop">.</span></h3>
-          <div class="rule"></div>
-          <p>Ethics in AI, leadership and business: privacy, fairness and responsibility.</p>
-        </article>
-        <article class="card rv">
-          <div class="label"><span>Part 07</span><span>Voice</span></div>
-          <h3>Inspire and persuade<span class="stop">.</span></h3>
-          <div class="rule"></div>
-          <p>Storytelling, presence and the art of the pitch.</p>
-        </article>
-        <article class="card dark rv d1">
-          <div class="label" style="color:var(--muted-light);"><span>All together</span><span>= </span></div>
-          <div>
-            <h3>AI leadership<span class="stop">.</span></h3>
-            <p style="margin-top:14px;">The defining skill of the next generation, and it can be learned, starting now.
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= WHO YOU BECOME ================= -->
-  <section class="on-dark" id="become">
-    <div class="wrap">
-      <div class="sec-top label"><span>Who you become</span><span class="count">05 / 08</span></div>
-      <div class="become">
-        <div class="sticky">
-          <h2 class="h-lg rv">The program lasts six days<span class="stop">.</span></h2>
-          <p class="lede rv d1" style="margin-top:22px;">Who you become lasts far longer.</p>
-        </div>
-        <div>
-          <ul class="become-list">
-            <li class="rv"><span><b>A visionary</b> who sees what AI makes possible, and where it should lead</span>
-            </li>
-            <li class="rv"><span><b>A creator</b> who turns imagination into real ideas, designs and solutions, with AI
-                amplifying every step</span></li>
-            <li class="rv"><span><b>A decision-maker</b> who questions answers, weighs evidence and makes bold,
-                well-judged choices</span></li>
-            <li class="rv"><span><b>A responsible leader</b> who uses AI with integrity, protecting people, privacy and
-                fairness</span></li>
-            <li class="rv"><span><b>A confident voice</b> who can present ideas before a jury of experts and move a
-                room</span></li>
-            <li class="rv"><span><b>A lifelong problem-solver</b> with a method to take on any challenge, in school,
-                college and career</span></li>
-          </ul>
-          <p class="closer rv">Six days. A lifetime of leading with confidence<span class="stop">.</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SCHEDULE ================= -->
-  <section id="schedule">
-    <div class="wrap">
-      <div class="sec-top label"><span>Six days at a glance</span><span class="count">06 / 08</span></div>
-
-      <div class="sched-head">
-        <h2 class="h-lg rv">The schedule<span class="stop">.</span></h2>
-        <p class="hours rv d1">Program hours are <b>9:00 AM to 8:00 PM</b> each day. Residents also enjoy morning
-          routines and evening walks and discussions with their mentors and teams.</p>
-      </div>
-
-      <div class="tabs js-only" role="tablist" aria-label="Program days">
-        <button class="tab" role="tab" aria-selected="true" aria-controls="d1" id="t1">Day 1</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="d2" id="t2">Day 2</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="d3" id="t3">Day 3</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="d4" id="t4">Day 4</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="d5" id="t5">Day 5</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="d6" id="t6">Day 6</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="d7" id="t7">Day 7</button>
-      </div>
-
-      <div class="days no-js-gap">
-        <div class="day" id="d1" role="tabpanel" aria-labelledby="t1">
-          <div class="day-side">
-            <div class="big">01</div>
-            <div>
-              <p class="label" style="color:var(--muted-light);">26 Dec</p>
-              <h3>Welcome<span class="stop">.</span></h3>
-            </div>
-          </div>
-          <ol class="day-list">
-            <li><span class="i">01</span>
-              <div><b>The Founders' Circle</b><span>Welcome and Mentor Teams</span></div>
-            </li>
-            <li><span class="i">02</span>
-              <div><b>Colours of Me</b><span>An Expressive Art Workshop</span></div>
-            </li>
-            <li><span class="i">03</span>
-              <div><b>Know Thyself</b><span>Discovering Your Leadership Style</span></div>
-            </li>
-          </ol>
-        </div>
-
-        <div class="day" id="d2" role="tabpanel" aria-labelledby="t2">
-          <div class="day-side">
-            <div class="big">02</div>
-            <div>
-              <p class="label" style="color:var(--muted-light);">27 Dec</p>
-              <h3>Leading in the Age of AI<span class="stop">.</span></h3>
-            </div>
-          </div>
-          <ol class="day-list">
-            <li><span class="i">01</span>
-              <div><b>Inaugural Address</b><span>Leading in the Age of AI</span></div>
-            </li>
-            <li><span class="i">02</span>
-              <div><b>The Innovator's Method</b><span>A Masterclass in Design Thinking</span></div>
-            </li>
-            <li><span class="i">03</span>
-              <div><b>Cohort Photograph</b></div>
-            </li>
-            <li><span class="i">04</span>
-              <div><b>Empathy to Insight</b><span>Understanding the People You Serve</span></div>
-            </li>
-            <li><span class="i">05</span>
-              <div><b>The Clarity Studio</b><span>Defining the Challenge</span></div>
-            </li>
-            <li><span class="i">06</span>
-              <div><b>Chai with Changemakers</b><span>An Evening with Young Founders</span></div>
-            </li>
-          </ol>
-        </div>
-
-        <div class="day" id="d3" role="tabpanel" aria-labelledby="t3">
-          <div class="day-side">
-            <div class="big">03</div>
-            <div>
-              <p class="label" style="color:var(--muted-light);">28 Dec</p>
-              <h3>Thinking and Creating with AI<span class="stop">.</span></h3>
-            </div>
-          </div>
-          <ol class="day-list">
-            <li><span class="i">01</span>
-              <div><b>Thinking with AI</b><span>What It Can and Cannot Do</span></div>
-            </li>
-            <li><span class="i">02</span>
-              <div><b>The Idea Storm</b><span>Creating with AI</span></div>
-            </li>
-            <li><span class="i">03</span>
-              <div><b>The Idea Foundry</b><span>Shaping Your Concept</span></div>
-            </li>
-            <li><span class="i">04</span>
-              <div><b>Local Trip</b></div>
-            </li>
-          </ol>
-        </div>
-
-        <div class="day" id="d4" role="tabpanel" aria-labelledby="t4">
-          <div class="day-side">
-            <div class="big">04</div>
-            <div>
-              <p class="label" style="color:var(--muted-light);">29 Dec</p>
-              <h3>Value, Integrity and Making<span class="stop">.</span></h3>
-            </div>
-          </div>
-          <ol class="day-list">
-            <li><span class="i">01</span>
-              <div><b>The Business Mind</b><span>How Ideas Become Enterprises</span></div>
-            </li>
-            <li><span class="i">02</span>
-              <div><b>Leading with Integrity</b><span>Ethics in AI, Leadership and Business</span></div>
-            </li>
-            <li><span class="i">03</span>
-              <div><b>Value by Design</b><span>Creating What People Need</span></div>
-            </li>
-            <li><span class="i">04</span>
-              <div><b>The Maker Lab</b><span>Bringing Ideas to Life</span></div>
-            </li>
-            <li><span class="i">05</span>
-              <div><b>The Feedback Lab</b><span>Test, Learn and Refine</span></div>
-            </li>
-            <li><span class="i">06</span>
-              <div><b>Cultural Evening</b><span>A Night of Talent and Music</span></div>
-            </li>
-          </ol>
-        </div>
-
-        <div class="day" id="d5" role="tabpanel" aria-labelledby="t5">
-          <div class="day-side">
-            <div class="big">05</div>
-            <div>
-              <p class="label" style="color:var(--muted-light);">30 Dec</p>
-              <h3>Enterprise and Voice<span class="stop">.</span></h3>
-            </div>
-          </div>
-          <ol class="day-list">
-            <li><span class="i">01</span>
-              <div><b>The Brand Story</b><span>Identity and Influence</span></div>
-            </li>
-            <li><span class="i">02</span>
-              <div><b>The Business Canvas Studio</b><span>Designing an Enterprise with AI</span></div>
-            </li>
-            <li><span class="i">03</span>
-              <div><b>The Money Lab</b><span>Earning, Pricing and Profit</span></div>
-            </li>
-            <li><span class="i">04</span>
-              <div><b>The Innovation Circuit</b><span>Design &amp; Innovation Lab, AI Lab, Medical Cobotics Center and
-                  Library</span></div>
-            </li>
-            <li><span class="i">05</span>
-              <div><b>The Voice of a Leader</b><span>Story, Presence and Persuasion</span></div>
-            </li>
-            <li><span class="i">06</span>
-              <div><b>Pitch Forge</b><span>Preparing to Pitch</span></div>
-            </li>
-          </ol>
-        </div>
-
-        <div class="day" id="d6" role="tabpanel" aria-labelledby="t6">
-          <div class="day-side">
-            <div class="big">06</div>
-            <div>
-              <p class="label" style="color:var(--muted-light);">31 Dec</p>
-              <h3>Pitch Day and Farewell<span class="stop">.</span></h3>
-            </div>
-          </div>
-          <ol class="day-list">
-            <li class="hl"><span class="i">01</span>
-              <div><b>The Pitch Summit</b><span>The Grand Pitching Competition</span></div>
-            </li>
-            <li><span class="i">02</span>
-              <div><b>Beyond Boundaries</b><span>Career Pathways Open House</span></div>
-            </li>
-            <li><span class="i">03</span>
-              <div><b>Valedictory Ceremony</b><span>With the Chief Guest and Jury</span></div>
-            </li>
-            <li><span class="i">04</span>
-              <div><b>Creating Last Memories</b><span>Farewell Evening</span></div>
-            </li>
-          </ol>
-        </div>
-
-        <div class="day" id="d7" role="tabpanel" aria-labelledby="t7">
-          <div class="day-side">
-            <div class="big">07</div>
-            <div>
-              <p class="label" style="color:var(--muted-light);">1 Jan</p>
-              <h3>Departure<span class="stop">.</span></h3>
-            </div>
-          </div>
-          <ol class="day-list">
-            <li><span class="i">01</span>
-              <div><b>Departure of resident participants</b></div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= APPLY ================= -->
-  <section class="on-dark" id="apply">
-    <div class="wrap">
-      <div class="sec-top label"><span>Who can apply</span><span class="count">07 / 08</span></div>
-
-      <div class="apply-grid">
-        <div>
-          <h2 class="h-lg rv">Earn your place<span class="stop">.</span></h2>
-          <ul class="elig rv d1">
-            <li>Students currently in Grades 9 to 12, and students who completed Grade 12 in 2026, from any school and
-              board.</li>
-            <li>Applicant must be an Indian citizen.</li>
-            <li>Comfortable learning and communicating in English, the language of the program.</li>
-          </ul>
-          <div class="note-box rv d2">
-            <p>Above all, the program is looking for students who are <b>curious, eager to learn, ready to take
-                initiative</b> and excited about what AI makes possible.</p>
-            <p>No prior knowledge of AI, coding, business or public speaking is needed.</p>
-          </div>
-        </div>
-
+        <p class="q rv">ISAiL exists to answer that question<span class="stop">.</span></p>
         <div class="rv d1">
-          <p class="label dot-label" style="margin-bottom:22px;">Program details</p>
-          <ul class="sheet">
-            <li><span class="k">Program</span><span class="v">Indo Youth AI Leadership Program</span></li>
-            <li><span class="k">For</span><span class="v">Students of Grades 9 to 12 and 2026 Grade 12 graduates; Indian
-                citizens; any school or board; English required</span></li>
-            <li><span class="k">Dates</span><span class="v">26 to 31 December 2026</span></li>
-            <li><span class="k">Daily hours</span><span class="v">9:00 AM to 8:00 PM</span></li>
-            <li><span class="k">Venue</span><span class="v">IIIT Delhi, New Delhi</span></li>
-            <li><span class="k">Selection</span><span class="v">Application, Group Discussion and final selection</span>
-            </li>
-            <li><span class="k">Residence</span><span class="v">Limited on-campus residence available for separate
-                charges</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="steps">
-        <div class="step rv">
-          <div class="n">1</div>
-          <h3>Application<span class="stop">.</span></h3>
-          <p>Fill in the online application form.</p>
-        </div>
-        <div class="step rv d1">
-          <div class="n">2</div>
-          <h3>Group Discussion<span class="stop">.</span></h3>
-          <p>Shortlisted applicants are invited to a Group Discussion round.</p>
-        </div>
-        <div class="step rv d2">
-          <div class="n">3</div>
-          <h3>Final selection<span class="stop">.</span></h3>
-          <p>Selected students receive a confirmation email and secure their seat by completing the payment.</p>
-        </div>
-      </div>
-
-      <div class="apply-cta rv">
-        <a class="btn btn-solid" id="applyMain" href="mailto:contact@isailab.com?subject=Indo%20Youth%20AI%20Leadership%20Program%20%E2%80%93%20Application"
-          data-apply>Apply now <span class="arrow" aria-hidden="true"></span></a>
-        <span class="small" id="applyNote">Admission is selective. Application link and fee details will be shared
-          here soon. Write to contact@isailab.com to be notified.</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= MENTORS + CAMPUS ================= -->
-  <section id="campus">
-    <div class="wrap">
-      <div class="two-up">
-        <div class="panel rv">
-          <p class="label dot-label">Mentors</p>
-          <h2 class="h-md">Learn from people who do it<span class="stop">.</span></h2>
-          <p>Mentors guide you throughout the six days.</p>
-          <div class="chips">
-            <span class="chip">Faculty</span><span class="chip">AI &amp; technology practitioners</span><span
-              class="chip">Entrepreneurs</span><span class="chip">Young founders</span><span
-              class="chip">Designers</span><span class="chip">Finance professionals</span><span class="chip">Marketing
-              professionals</span><span class="chip">Career experts</span>
-          </div>
-          <p class="tba">Names and profiles to be announced</p>
-        </div>
-        <div class="panel rv d1">
-          <p class="label dot-label">The campus</p>
-          <h2 class="h-md">At IIIT Delhi<span class="stop">.</span></h2>
-          <p>Indraprastha Institute of Information Technology, Delhi is a research-led state university, established in
-            2008 by an Act of the Government of Delhi, and widely regarded as one of India's leading institutes for
-            computing and its allied fields. Its campus in Okhla brings together departments spanning computer science,
-            electronics, design, the social sciences and more. Every regular faculty member holds a doctorate, many from
-            leading universities around the world.</p>
-          <p style="margin-top:14px;">For six days, participants learn on this campus and step inside its research labs
-            and innovation spaces.</p>
-          <div class="facts">
-            <div>
-              <div class="v">2008</div>
-              <div class="k">Established</div>
-            </div>
-            <div>
-              <div class="v">25</div>
-              <div class="k">Acre campus</div>
-            </div>
-            <div>
-              <div class="v">A</div>
-              <div class="k">NAAC grade</div>
-            </div>
-          </div>
+          <p class="lede">In an era where artificial intelligence is rapidly reshaping industries, institutions and
+            everyday life, we work across technical research, model development, applied engineering and real-world
+            deployment.</p>
+          <p class="lede" style="margin-top:16px;">We bring together technologists, policy thinkers and domain
+            specialists to build solutions that matter.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= ABOUT ISAiL ================= -->
-  <section id="isail" style="padding-top:0;">
+  <!-- ================= NAME + BELIEF ================= -->
+  <section id="name">
     <div class="wrap">
-      <div class="sec-top label"><span>Presented by</span><span class="count">08 / 08</span></div>
-
       <div class="about-grid">
         <div>
-          <h2 class="h-lg rv">Securing the AI frontier for India's future<span class="stop">.</span></h2>
-          <ul class="name-rows rv d1" style="margin-top:44px;">
+          <p class="label dot-label rv">The name</p>
+          <ul class="name-rows rv d1" style="margin-top:28px;">
             <li><span class="L">I</span><span><b>INDO</b><span>Built in India, for India.</span></span></li>
             <li><span class="L">S</span><span><b>SECURE</b><span>Safe and trustworthy by design.</span></span></li>
             <li><span class="L">A<i>i</i></span><span><b>AI</b><span>The technology shaping our future.</span></span>
@@ -2302,53 +137,145 @@
           </ul>
         </div>
         <div class="about-copy rv d1">
-          <p>ISAiL (Indo Secure AI Lab) is a multidisciplinary research and engineering initiative dedicated to
-            advancing AI that is safe and trustworthy for India.</p>
+          <p class="label dot-label">What we believe</p>
           <p class="belief">AI must be built safely, governed well and deployed responsibly.</p>
-          <p>The lab brings together technologists, policy thinkers and domain specialists to research, build and deploy
-            AI across three pillars.</p>
+          <p>We call this approach <b style="color:var(--ink);font-weight:500;">techno-civic stewardship</b>: treating
+            AI not only as a technology, but as a responsibility.</p>
+          <p>It shapes everything the lab does, from how we evaluate and secure models, to the policy questions we
+            study, to the communities we build for and the young people we train.</p>
         </div>
-      </div>
-
-      <div class="pillars">
-        <div class="pillar rv">
-          <div class="label">Pillar 01</div>
-          <h3>Technical alignment and security<span class="stop">.</span></h3>
-          <p>Model safety evaluations, red-teaming, prompt security and safety alignment, including for Indic and
-            regional languages.</p>
-        </div>
-        <div class="pillar rv d1">
-          <div class="label">Pillar 02</div>
-          <h3>Sovereign strategy and e-governance<span class="stop">.</span></h3>
-          <p>Technology policy, sovereign compute, data privacy, and how public institutions can use AI to serve
-            citizens better.</p>
-        </div>
-        <div class="pillar rv d2">
-          <div class="label">Pillar 03</div>
-          <h3>Real-world deployment<span class="stop">.</span></h3>
-          <p>Scalable AI for public good in areas such as healthcare, agriculture and education, across 22+ regional
-            languages.</p>
-        </div>
-      </div>
-
-      <div class="stewardship rv">
-        <h3 class="h-md">Techno-civic stewardship<span class="stop">.</span></h3>
-        <p>Treating AI not only as a technology, but as a responsibility. The Indo Youth AI Leadership Program brings
-          that same spirit to the next generation of leaders.</p>
       </div>
     </div>
   </section>
 
-  <!-- ================= FEED ================= -->
-  <section id="learn-with-us" style="padding-top:0;">
+  <!-- ================= WHAT WE DO ================= -->
+  <section id="work" style="padding-top:0;">
     <div class="wrap">
+      <div class="sec-top label"><span>What we do</span><span class="count">02 / 05</span></div>
+
+      <div class="learn-head">
+        <h2 class="h-lg rv">One lab. Three pillars<span class="stop">.</span></h2>
+        <p class="lede rv d1">ISAiL runs original research, builds and ships models and projects, and partners with
+          institutions and communities to deploy solutions where they're needed most.</p>
+      </div>
+
+      <div class="pillars-lg">
+        <article class="pillar-lg rv">
+          <div class="label"><span>Pillar 01</span><span>Core technology</span></div>
+          <h3>Technical alignment and security<span class="stop">.</span></h3>
+          <p>Researching how intelligent systems are built, evaluated and secured, from model development to
+            safety alignment for real-world deployment.</p>
+          <div class="chips"><span class="chip">Safety evaluations</span><span class="chip">Red-teaming</span><span
+              class="chip">Prompt security</span><span class="chip">Safety alignment</span><span
+              class="chip red">Indic &amp; regional languages</span></div>
+        </article>
+        <article class="pillar-lg rv d1">
+          <div class="label"><span>Pillar 02</span><span>Policy</span></div>
+          <h3>Sovereign strategy and e-governance<span class="stop">.</span></h3>
+          <p>Studying how AI intersects with business, regulation and public institutions, and shaping the frameworks
+            that will guide its responsible use at scale.</p>
+          <div class="chips"><span class="chip">Technology policy</span><span class="chip">Sovereign
+              compute</span><span class="chip">Data privacy</span><span class="chip red">AI for citizen
+              services</span></div>
+        </article>
+        <article class="pillar-lg rv d2">
+          <div class="label"><span>Pillar 03</span><span>Impact</span></div>
+          <h3>Real-world deployment<span class="stop">.</span></h3>
+          <p>Designing, building and deploying scalable AI for public good across the everyday systems that shape how
+            India works and grows.</p>
+          <div class="chips"><span class="chip">Healthcare</span><span class="chip">Agriculture</span><span
+              class="chip">Education</span><span class="chip">Commerce</span><span class="chip red">22+ regional
+              languages</span></div>
+        </article>
+      </div>
+
+      <div class="how rv">
+        <div class="how-item"><span class="n">01</span>
+          <h3>Research<span class="stop">.</span></h3>
+          <p>Original research on how AI systems are built, evaluated, secured and governed.</p>
+        </div>
+        <div class="how-item"><span class="n">02</span>
+          <h3>Build<span class="stop">.</span></h3>
+          <p>Models and projects, designed, engineered and shipped.</p>
+        </div>
+        <div class="how-item"><span class="n">03</span>
+          <h3>Deploy<span class="stop">.</span></h3>
+          <p>Partnerships with institutions and communities, to put solutions where they're needed most.</p>
+        </div>
+        <div class="how-item"><span class="n">04</span>
+          <h3>Educate<span class="stop">.</span></h3>
+          <p>Bootcamps and fellowships that bring curious minds from every discipline into the work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROGRAMS ================= -->
+  <section id="programs" style="background:var(--paper-2);">
+    <div class="wrap">
+      <div class="sec-top label"><span>Programs</span><span class="count">03 / 05</span></div>
+
+      <div class="learn-head">
+        <h2 class="h-lg rv">Building the talent behind safe AI<span class="stop">.</span></h2>
+        <p class="lede rv d1">Our bootcamps and fellowships are one part of the lab's work: a way to bring bright,
+          curious minds from every discipline, not just computer science, into a much larger body of work already
+          underway.</p>
+      </div>
+
+      <article class="program-card rv">
+        <div class="program-main">
+          <p class="label dot-label">Now accepting applications</p>
+          <h3 class="h-lg">Indo Youth AI Leadership Program<span class="stop">.</span></h3>
+          <p class="lede">A selective six-day leadership experience at IIIT Delhi where students of Grades 9 to 12 learn
+            to think, create, decide and lead with AI.</p>
+          <div class="program-meta">
+            <div><span class="k">Dates</span><span class="v">26 – 31 Dec 2026</span></div>
+            <div><span class="k">Venue</span><span class="v">IIIT Delhi</span></div>
+            <div><span class="k">For</span><span class="v">Grades 9 to 12</span></div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="youth-ai-leadership.html">Explore the program <span class="arrow"
+                aria-hidden="true"></span></a>
+            <a class="btn btn-line" href="youth-ai-leadership.html#application">Apply now</a>
+          </div>
+        </div>
+        <div class="program-art" aria-hidden="true">
+          <div class="sun"></div>
+          <ul>
+            <li>Think with AI</li>
+            <li>Design for people</li>
+            <li>Lead with integrity</li>
+            <li class="hl">Pitch Summit</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="program-next rv">
+        <div>
+          <p class="label" style="color:var(--muted);">Coming next</p>
+          <h3 class="h-md" style="margin-top:14px;">More bootcamps and fellowships<span class="stop">.</span></h3>
+        </div>
+        <p>New programs will be announced here and on Instagram. Follow <a href="https://www.instagram.com/isail_lab/"
+            target="_blank" rel="noopener" style="color:var(--ink);border-bottom:1px solid var(--red);">@isail_lab</a>
+          to hear first.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= LEARN ================= -->
+  <section id="learn">
+    <div class="wrap">
+      <div class="sec-top label"><span>Learn with us</span><span class="count">04 / 05</span></div>
       <div class="feed-head">
         <div>
-          <p class="label dot-label rv">Follow along · @isail_lab</p>
-          <h2 class="h-md rv d1" style="margin-top:16px;">AI, explained simply<span class="stop">.</span></h2>
+          <h2 class="h-lg rv">AI, explained simply<span class="stop">.</span></h2>
+          <div class="fields rv d1" style="margin-top:24px;">
+            <span class="chip">AI, explained simply</span><span class="chip">Staying safe in an AI world</span><span
+              class="chip">Real or AI?</span><span class="chip red">Tools, tips &amp; careers in AI</span>
+          </div>
         </div>
-        <a class="btn btn-line rv" href="https://www.instagram.com/isail_lab/" target="_blank" rel="noopener">On
-          Instagram <span class="arrow" aria-hidden="true"></span></a>
+        <a class="btn btn-line rv" href="https://www.instagram.com/isail_lab/" target="_blank" rel="noopener">Follow
+          @isail_lab <span class="arrow" aria-hidden="true"></span></a>
       </div>
       <div class="feed rv">
         <a href="https://www.instagram.com/isail_lab/" target="_blank" rel="noopener"><img
@@ -2362,24 +289,24 @@
           <p class="cap">How ChatGPT actually works</p>
         </a>
         <a href="https://www.instagram.com/isail_lab/" target="_blank" rel="noopener"><img
-            src="assets/posts/ai-glossary.webp" alt="AI words you keep hearing" loading="lazy" width="640"
-            height="800">
-          <p class="cap">AI words you keep hearing</p>
-        </a>
-        <a href="https://www.instagram.com/isail_lab/" target="_blank" rel="noopener"><img
             src="assets/posts/spot-ai-photos.webp" alt="How to spot AI-made photos and videos" loading="lazy"
             width="640" height="800">
           <p class="cap">Spot AI-made photos &amp; videos</p>
         </a>
         <a href="https://www.instagram.com/isail_lab/" target="_blank" rel="noopener"><img
-            src="assets/posts/ai-tools-students.webp" alt="5 AI tools every student should use" loading="lazy"
-            width="640" height="800">
-          <p class="cap">5 AI tools every student should use</p>
-        </a>
-        <a href="https://www.instagram.com/isail_lab/" target="_blank" rel="noopener"><img
             src="assets/posts/data-privacy.webp" alt="Is your data training AI?" loading="lazy" width="640"
             height="800">
           <p class="cap">Is your data training AI?</p>
+        </a>
+        <a href="https://www.instagram.com/isail_lab/" target="_blank" rel="noopener"><img
+            src="assets/posts/ai-glossary.webp" alt="AI words you keep hearing" loading="lazy" width="640"
+            height="800">
+          <p class="cap">AI words you keep hearing</p>
+        </a>
+        <a href="https://www.instagram.com/isail_lab/" target="_blank" rel="noopener"><img
+            src="assets/posts/ai-tools-students.webp" alt="5 AI tools every student should use" loading="lazy"
+            width="640" height="800">
+          <p class="cap">5 AI tools every student should use</p>
         </a>
         <a href="https://www.instagram.com/isail_lab/" target="_blank" rel="noopener"><img
             src="assets/posts/careers-in-ai.webp" alt="Careers in AI that aren't coding" loading="lazy" width="640"
@@ -2390,81 +317,45 @@
     </div>
   </section>
 
-  <!-- ================= FAQ ================= -->
-  <section id="faq" style="padding-top:0;">
+  <!-- ================= CONTACT ================= -->
+  <section class="on-dark final" id="contact">
     <div class="wrap">
-      <div class="sec-top label"><span>Questions</span><span class="count">FAQ</span></div>
-      <div class="faq-grid">
-        <div>
-          <h2 class="h-lg rv">Frequently asked<span class="stop">.</span></h2>
-          <p class="lede rv d1" style="margin-top:20px;">Something else on your mind? Write to <a
-              href="mailto:contact@isailab.com" style="color:var(--ink); border-bottom:1px solid var(--red);">contact@isailab.com</a>.
-          </p>
-        </div>
-        <div class="rv d1">
-          <details>
-            <summary>Do I need to know AI, coding or business?<span class="pm" aria-hidden="true"></span></summary>
-            <p><b>No.</b> Everything starts from the basics. The program is about leading with AI, not building it.</p>
-          </details>
-          <details>
-            <summary>Is it only for students who want a career in technology?<span class="pm"
-                aria-hidden="true"></span></summary>
-            <p><b>No.</b> AI is shaping every field, so the program is designed for students of every stream. Teams
-              deliberately mix grades and streams.</p>
-          </details>
-          <details>
-            <summary>Is accommodation available?<span class="pm" aria-hidden="true"></span></summary>
-            <p>Limited on-campus residence is available for separate charges, subject to availability. You can request
-              it when you apply.</p>
-          </details>
-          <details>
-            <summary>What should I bring?<span class="pm" aria-hidden="true"></span></summary>
-            <p>Warm clothing, personal essentials, a notebook, and the documents listed in your confirmation email.</p>
-          </details>
-          <details>
-            <summary>Will I receive a certificate?<span class="pm" aria-hidden="true"></span></summary>
-            <p><b>Yes.</b> Every participant receives a certificate of participation.</p>
-          </details>
-          <details>
-            <summary>How are participants selected?<span class="pm" aria-hidden="true"></span></summary>
-            <p>Through a three-step process: an online application, a Group Discussion round for shortlisted
-              applicants, and final selection. Selected students receive a confirmation email and secure their seat by
-              completing the payment.</p>
-          </details>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= FINAL CTA ================= -->
-  <section class="on-dark final">
-    <div class="wrap">
+      <div class="sec-top label" style="text-align:left;"><span>Work with us</span><span class="count">05 /
+          05</span></div>
       <div class="sun" aria-hidden="true"></div>
-      <h2 class="h-lg rv">Ready to lead with AI<span class="stop">?</span></h2>
-      <p class="lede rv d1">26 to 31 December 2026 at IIIT Delhi. For students of Grades 9 to 12.</p>
+      <h2 class="h-lg rv">Let's build AI that is powerful and safe<span class="stop">.</span></h2>
+      <p class="lede rv d1">For research collaborations, institutional partnerships, programs or anything else, write
+        to us.</p>
       <div class="hero-actions rv d2">
-        <a class="btn btn-solid" href="#apply" data-apply>Apply now <span class="arrow" aria-hidden="true"></span></a>
-        <a class="btn btn-line" href="mailto:contact@isailab.com">contact@isailab.com</a>
+        <a class="btn btn-solid" href="mailto:contact@isailab.com">contact@isailab.com <span class="arrow"
+            aria-hidden="true"></span></a>
+        <a class="btn btn-line" href="https://www.instagram.com/isail_lab/" target="_blank"
+          rel="noopener">Instagram</a>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="wrap">
-      <div class="foot-grid">
+      <div class="foot-grid four">
         <div class="foot-brand">
           <img src="assets/logo-light.png" alt="ISAiL" width="72" height="34">
           <p class="label">Indo Secure AI Lab</p>
           <p>Securing the AI frontier for India's future.</p>
         </div>
         <div>
-          <h4>Program</h4>
+          <h4>The lab</h4>
           <ul>
-            <li><a href="#program">Introducing the program</a></li>
-            <li><a href="#learn">What you will learn</a></li>
-            <li><a href="#schedule">Six days at a glance</a></li>
-            <li><a href="#apply">How to apply</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">What we do</a></li>
+            <li><a href="#learn">Learn with us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="youth-ai-leadership.html">Indo Youth AI Leadership Program</a></li>
+            <li><a href="youth-ai-leadership.html#application">Apply</a></li>
           </ul>
         </div>
         <div>
@@ -2473,7 +364,6 @@
             <li><a href="mailto:contact@isailab.com">contact@isailab.com</a></li>
             <li><a href="https://www.instagram.com/isail_lab/" target="_blank" rel="noopener">Instagram · @isail_lab</a>
             </li>
-            <li>IIIT Delhi, Okhla, New Delhi</li>
           </ul>
         </div>
       </div>
@@ -2484,87 +374,7 @@
     </div>
   </footer>
 
-  <script>
-    /* ---- Set this when the application form is live. Every "Apply" button will point to it. ---- */
-    const APPLY_URL = '';
-
-    (function () {
-      // Apply links
-      if (APPLY_URL) {
-        document.querySelectorAll('[data-apply]').forEach(a => {
-          a.href = APPLY_URL; a.target = '_blank'; a.rel = 'noopener';
-        });
-        const note = document.getElementById('applyNote');
-        if (note) note.textContent = 'Admission is selective. Applications are reviewed in three steps.';
-      }
-
-      // Nav
-      const nav = document.getElementById('nav');
-      const btn = document.getElementById('menuBtn');
-      const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 10);
-      onScroll();
-      window.addEventListener('scroll', onScroll, { passive: true });
-      btn.addEventListener('click', () => {
-        const open = nav.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open);
-      });
-      document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => {
-        nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false');
-      }));
-
-      // Schedule tabs
-      const tabs = [...document.querySelectorAll('.tab')];
-      const select = (t, focus) => {
-        tabs.forEach(x => {
-          const on = x === t;
-          x.setAttribute('aria-selected', on);
-          x.tabIndex = on ? 0 : -1;
-          document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
-        });
-        if (focus) t.focus();
-      };
-      tabs.forEach((t, i) => {
-        t.addEventListener('click', () => select(t));
-        t.addEventListener('keydown', e => {
-          if (e.key === 'ArrowRight') select(tabs[(i + 1) % tabs.length], true);
-          if (e.key === 'ArrowLeft') select(tabs[(i - 1 + tabs.length) % tabs.length], true);
-        });
-      });
-      select(tabs[0]);
-
-      // Reveal on scroll
-      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const els = document.querySelectorAll('.rv');
-      if ('IntersectionObserver' in window && !reduce) {
-        const io = new IntersectionObserver(entries => entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-        }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-        els.forEach(el => io.observe(el));
-      } else {
-        els.forEach(el => el.classList.add('in'));
-      }
-
-      // Typing prompt (like the post covers)
-      const typed = document.getElementById('typed');
-      const lines = ['Who will lead the age of AI?', 'Can I learn to lead with AI?', 'What does AI get wrong?',
-        'How do I pitch my idea?', 'Is AI only for coders?'];
-      if (typed && !reduce) {
-        let li = 0, ci = lines[0].length, del = true;
-        const tick = () => {
-          const s = lines[li];
-          if (del) {
-            ci--; typed.textContent = s.slice(0, ci);
-            if (ci <= 0) { del = false; li = (li + 1) % lines.length; }
-            setTimeout(tick, 28);
-          } else {
-            const t = lines[li]; ci++; typed.textContent = t.slice(0, ci);
-            if (ci >= t.length) { del = true; setTimeout(tick, 2400); } else setTimeout(tick, 55);
-          }
-        };
-        setTimeout(tick, 2600);
-      }
-    })();
-  </script>
+  <script src="assets/site.js?v=5"></script>
 </body>
 
 </html>
