@@ -1,0 +1,32 @@
+# ISAiL (Indo Secure AI Lab)
+
+> ISAiL (Indo Secure AI Lab, also written Indo Secure AI Labs) is a multidisciplinary research and engineering initiative dedicated to advancing AI that is safe and trustworthy for India. Website: https://isailab.com. Contact: contact@isailab.com. Instagram: @isail_lab.
+
+ISAiL is built on a simple belief: AI must be built safely, governed well and deployed responsibly. The lab brings together technologists, policy thinkers and domain specialists to research, build and deploy AI across three pillars:
+
+1. Technical alignment and security: model safety evaluations, red-teaming, prompt security and safety alignment, including for Indic and regional languages.
+2. Sovereign strategy and e-governance: technology policy, sovereign compute, data privacy, and how public institutions can use AI to serve citizens better.
+3. Real-world deployment: scalable AI for public good in areas such as healthcare, agriculture and education, across 22+ regional languages.
+
+ISAiL calls this approach techno-civic stewardship: treating AI not only as a technology, but as a responsibility. ISAiL also runs bootcamps and fellowships that bring curious students from every discipline into its work.
+
+## Indo Youth AI Leadership Program 2026
+
+ISAiL's current program for school students.
+
+- What: a selective six-day AI leadership program. Students learn to think, create, decide and lead with AI, and every participant pitches at the Pitch Summit before a jury of experts and the chief guest. It is not a coding course; no prior knowledge of AI, coding, business or public speaking is needed.
+- When: 26 to 31 December 2026, 9:00 AM to 8:00 PM daily.
+- Where: IIIT Delhi (Indraprastha Institute of Information Technology Delhi), New Delhi.
+- Who can apply: students in Grades 9 to 12, and students who completed Grade 12 in 2026, from any school, board or stream. Applicants must be Indian citizens and comfortable learning in English.
+- Fee: ₹13,000, including the program, meals, program kit and access to campus facilities such as the gym, library and labs. Limited on-campus residence costs an additional ₹9,000, subject to availability.
+- Scholarships: need-based financial aid of up to 75% of the program fee, subject to document verification and committee review. Scholarship applicants must apply by 20 November 2026.
+- Selection: online application, shortlisting, Group Discussion, final selection.
+- Key dates: applications open 27 October 2026; Group Discussions begin 1 November 2026; scholarship applicants apply by 20 November 2026; application deadline 30 November 2026; final selection 1 to 20 December 2026.
+- What students learn (seven strands): Know Yourself as a Leader; Think with AI; Design for People; Create and Build with AI; Decide and Build an Enterprise; Lead with Integrity; Inspire and Persuade.
+- Every participant receives a certificate of participation.
+
+## Pages
+
+- [ISAiL home](https://isailab.com/): about the lab, its three pillars and its programs
+- [Indo Youth AI Leadership Program](https://isailab.com/youth-ai-leadership): program details, six-day schedule, fees, key dates and FAQs
+- [Apply](https://isailab.com/apply): online application form

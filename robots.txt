@@ -1,6 +1,24 @@
-# robots.txt — Indo Secure AI Labs (isailab.com)
+# robots.txt for isailab.com (ISAiL, Indo Secure AI Lab)
+# Search engines and AI assistants are welcome to read and cite this site.
 
 User-agent: *
+Allow: /
+
+# Named explicitly so AI search and assistants can find and cite ISAiL
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Google-Extended
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: DuckAssistBot
 Allow: /
 
 Sitemap: https://isailab.com/sitemap.xml
