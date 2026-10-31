@@ -1,6 +1,6 @@
 # ISAiL (Indo Secure AI Lab)
 
-> ISAiL (Indo Secure AI Lab, also written Indo Secure AI Labs) is a multidisciplinary research and engineering initiative dedicated to advancing AI that is safe and trustworthy for India. Website: https://isailab.com. Contact: contact@isailab.com. Instagram: @isail_lab.
+> ISAiL (Indo Secure AI Lab, also written Indo Secure AI Labs) is a multidisciplinary research and engineering initiative dedicated to advancing AI that is safe and trustworthy for India. Website: https://isailab.com. Contact: contact@isailab.com. Instagram: https://www.instagram.com/isail_lab/. LinkedIn: https://www.linkedin.com/in/indo-secure-ai-lab-isail-584b40445.
 
 ISAiL is built on a simple belief: AI must be built safely, governed well and deployed responsibly. The lab brings together technologists, policy thinkers and domain specialists to research, build and deploy AI across three pillars:
 

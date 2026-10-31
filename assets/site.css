@@ -2456,3 +2456,9 @@ html:has(.has-announce) {
 #contact h2 {
   max-width: 16ch;
 }
+
+.follow-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
