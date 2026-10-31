@@ -1177,3 +1177,30 @@ body.prog {
 .apply-page .form-aside {
   position: static;
 }
+
+/* ---------- countdown heartbeat ---------- */
+.p-sun {
+  animation: p-beat 1.4s ease-in-out infinite;
+}
+
+@keyframes p-beat {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  14% { transform: translateY(-50%) scale(1.05); }
+  28% { transform: translateY(-50%) scale(1); }
+  42% { transform: translateY(-50%) scale(1.035); }
+  70% { transform: translateY(-50%) scale(1); }
+}
+
+@media (max-width: 760px) {
+  .p-sun {
+    animation: p-beat-m 1.4s ease-in-out infinite;
+  }
+
+  @keyframes p-beat-m {
+    0%, 100% { transform: scale(1); }
+    14% { transform: scale(1.06); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.04); }
+    70% { transform: scale(1); }
+  }
+}
