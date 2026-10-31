@@ -1193,3 +1193,22 @@ body.prog {
     50% { transform: scale(1.03); }
   }
 }
+
+.app-form .opt {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 6px;
+}
+
+/* Program name inside the hero h1 (for search engines and clarity) */
+.p-kicker {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--red);
+  margin-bottom: 22px;
+}

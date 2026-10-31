@@ -108,7 +108,8 @@ const FORM_ENDPOINT = 'https://script.google.com/a/macros/isailab.com/s/AKfycbz2
       let m;
       if (el.type === 'radio') {
         const group = form.querySelectorAll('input[name="' + el.name + '"]');
-        m = [...group].some(r => r.checked) ? '' : 'Please choose one.';
+        const required = [...group].some(r => r.required);
+        m = !required || [...group].some(r => r.checked) ? '' : 'Please choose one.';
       } else m = msgFor(el);
       field.classList.toggle('invalid', !!m);
       const errEl = field.querySelector('.err');
