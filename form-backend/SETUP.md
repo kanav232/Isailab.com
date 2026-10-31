@@ -15,7 +15,14 @@ The form on isailab.com sends each application to a Google Sheet through a small
    ```js
    const FORM_ENDPOINT = '';
    ```
-8. Commit and push. Submit a test application at isailab.com/youth-ai-leadership and check that a row appears in the sheet.
+8. Commit and push. Submit a test application at isailab.com/apply and check that a row appears in the sheet.
+
+## Updating the script (e.g. after new questions are added)
+
+1. In the sheet, open **Extensions → Apps Script**, select all the code and replace it with the latest `apps-script.gs`. Save.
+2. Run `setup` once. This rewrites the header row to match the new questions.
+3. **Deploy → Manage deployments → Edit (pencil) → Version: New version → Deploy.** The web app link stays the same, so the website needs no change.
+4. If the sheet has test rows from before the update, delete them, because their columns won't line up with the new headers.
 
 ## Notes
 

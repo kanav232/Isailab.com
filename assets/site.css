@@ -2331,7 +2331,7 @@ html:has(.has-announce) {
 
 .program-meta {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(4, auto);
   justify-content: start;
   gap: 40px;
   margin-top: 36px;

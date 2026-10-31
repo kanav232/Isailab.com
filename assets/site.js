@@ -73,6 +73,19 @@ const FORM_ENDPOINT = 'https://script.google.com/a/macros/isailab.com/s/AKfycbz2
       ta.addEventListener('input', upd); upd();
     });
 
+    // Conditional fields: <div class="field" data-show-if="name=value" hidden>
+    const conds = [...form.querySelectorAll('[data-show-if]')];
+    const syncConds = () => conds.forEach(f => {
+      const [name, val] = f.dataset.showIf.split('=');
+      const picked = form.querySelector('input[name="' + name + '"]:checked');
+      const show = !!picked && picked.value === val;
+      f.hidden = !show;
+      f.querySelectorAll('input, select, textarea').forEach(el => { el.disabled = !show; });
+      if (!show) { f.classList.remove('invalid'); const e = f.querySelector('.err'); if (e) e.textContent = ''; }
+    });
+    form.addEventListener('change', syncConds);
+    syncConds();
+
     const msgFor = el => {
       if (el.validity.valueMissing) {
         if (el.type === 'radio') return 'Please choose one.';
@@ -80,7 +93,7 @@ const FORM_ENDPOINT = 'https://script.google.com/a/macros/isailab.com/s/AKfycbz2
         return 'This field is required.';
       }
       if (el.validity.typeMismatch && el.type === 'email') return 'Please enter a valid email address.';
-      if (el.validity.patternMismatch) return 'Please enter a valid 10-digit Indian mobile number.';
+      if (el.validity.patternMismatch) return el.dataset.msg || 'Please enter a valid 10-digit Indian mobile number.';
       if (el.tagName === 'TEXTAREA') {
         const n = words(el.value), min = +el.dataset.minWords, max = +el.dataset.maxWords;
         if (min && el.value.trim() && n < min) return 'Please write at least ' + min + ' words (' + n + ' so far).';
@@ -131,6 +144,7 @@ const FORM_ENDPOINT = 'https://script.google.com/a/macros/isailab.com/s/AKfycbz2
       status.textContent = ''; status.classList.remove('bad');
       let firstBad = null;
       form.querySelectorAll('.field input, .field select, .field textarea').forEach(el => {
+        if (el.disabled || el.closest('[hidden]')) return;
         if (el.type === 'radio' && el !== form.querySelector('input[name="' + el.name + '"]')) return;
         if (!checkField(el) && !firstBad) firstBad = el;
       });

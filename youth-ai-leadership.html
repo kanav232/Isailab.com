@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="assets/site.css?v=5">
-  <link rel="stylesheet" href="assets/program.css?v=5">
+  <link rel="stylesheet" href="assets/site.css?v=8">
+  <link rel="stylesheet" href="assets/program.css?v=8">
 </head>
 
 <body class="prog">
@@ -37,9 +37,10 @@
         <a href="#experience">The experience</a>
         <a href="#days">Six days</a>
         <a href="#eligibility">Who can apply</a>
+        <a href="#dates">Fees &amp; dates</a>
         <a href="#faq">FAQ</a>
       </div>
-      <a class="btn btn-solid" href="#application">Apply <span class="arrow" aria-hidden="true"></span></a>
+      <a class="btn btn-solid" href="apply.html">Apply <span class="arrow" aria-hidden="true"></span></a>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"
         aria-controls="navLinks"><span></span><span></span></button>
     </div>
@@ -59,13 +60,14 @@
       <p class="p-sub rv d1">Six days at IIIT Delhi. For students of Grades 9 to 12 who are ready for what comes next.
       </p>
       <div class="hero-actions rv d2">
-        <a class="btn btn-solid" href="#application">Apply now <span class="arrow" aria-hidden="true"></span></a>
+        <a class="btn btn-solid" href="apply.html">Apply now <span class="arrow" aria-hidden="true"></span></a>
         <a class="btn btn-line" href="#days">See the six days</a>
       </div>
       <ul class="p-facts rv d3">
         <li><span>When</span>26 – 31 Dec 2026</li>
         <li><span>Where</span>IIIT Delhi, New Delhi</li>
         <li><span>Who</span>Grades 9 to 12</li>
+        <li class="hot"><span>Apply by</span>30 Nov 2026</li>
       </ul>
     </div>
   </header>
@@ -92,6 +94,12 @@
       </ul>
       <p class="p-is rv d1">Six days to think, create, decide and lead with AI, alongside the people building the
         future<span class="stop">.</span></p>
+      <ul class="stats rv d2">
+        <li><b>6</b><span>Days on campus</span></li>
+        <li><b>7</b><span>Learning strands</span></li>
+        <li><b>25+</b><span>Sessions &amp; labs</span></li>
+        <li><b>1</b><span>Big stage</span></li>
+      </ul>
     </div>
   </section>
 
@@ -208,6 +216,26 @@
     </div>
   </section>
 
+  <!-- ================= THE PLACE ================= -->
+  <section class="p-place">
+    <div class="wrap">
+      <div class="place-grid">
+        <div>
+          <p class="label dot-label rv">The place</p>
+          <h2 class="p-h2 rv d1">At IIIT Delhi<span class="stop">.</span></h2>
+        </div>
+        <div class="rv d1">
+          <p class="p-lead">One of India's foremost institutes for computing, artificial intelligence and research-driven
+            innovation.</p>
+          <p class="p-body">Its departments span computer science, electronics, computational biology, mathematics,
+            human-centred design and the social sciences, working where technology, design and society meet: the same
+            place where AI leadership lives. For six days, you learn on a campus where student startups take shape and
+            ideas move from the lab to real-world impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= ELIGIBILITY ================= -->
   <section class="p-elig" id="eligibility">
     <div class="wrap">
@@ -224,204 +252,63 @@
             <li>Indian citizen</li>
             <li>Comfortable learning in English</li>
           </ul>
-          <ol class="flow">
+          <ol class="flow four">
             <li><b>Apply</b><span>Online form</span></li>
+            <li><b>Shortlisting</b><span>We review every application</span></li>
             <li><b>Group Discussion</b><span>If shortlisted</span></li>
             <li><b>Selected</b><span>Confirm your seat</span></li>
           </ol>
-          <p class="p-small">Limited on-campus residence is available for separate charges.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= APPLICATION ================= -->
-  <section id="application" class="p-apply">
+  <!-- ================= FEES & KEY DATES ================= -->
+  <section class="p-dates" id="dates">
     <div class="wrap">
-      <div class="form-grid">
-        <aside class="form-aside">
-          <p class="label dot-label rv">Applications open</p>
-          <h2 class="p-h2 rv d1">Claim your seat<span class="stop">.</span></h2>
-          <p class="p-note rv d2">It takes about 10 minutes. Seats are limited and selection is competitive.</p>
-        </aside>
-
+      <div class="dates-grid">
         <div>
-          <form class="app-form rv" id="appForm" novalidate>
-            <input type="hidden" name="program" value="Indo Youth AI Leadership Program 2026">
-            <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website"
-                  tabindex="-1" autocomplete="off"></label></div>
-
-            <fieldset>
-              <legend>About you</legend>
-              <div class="fields-2">
-                <div class="field full"><label for="f-name">Full name <span class="req">*</span></label>
-                  <input type="text" id="f-name" name="name" autocomplete="name" required>
-                  <span class="err"></span>
-                </div>
-                <div class="field"><label for="f-email">Email <span class="req">*</span></label>
-                  <input type="email" id="f-email" name="email" autocomplete="email" required>
-                  <span class="err"></span>
-                </div>
-                <div class="field"><label for="f-phone">Phone / WhatsApp <span class="req">*</span></label>
-                  <input type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel"
-                    pattern="(\+91 ?)?[6-9][0-9]{4} ?[0-9]{5}" placeholder="+91 98765 43210" required>
-                  <span class="err"></span>
-                </div>
-                <div class="field"><label for="f-city">City <span class="req">*</span></label>
-                  <input type="text" id="f-city" name="city" autocomplete="address-level2" required>
-                  <span class="err"></span>
-                </div>
-                <div class="field"><label for="f-state">State / UT <span class="req">*</span></label>
-                  <select id="f-state" name="state" required>
-                    <option value="">Select</option>
-                  </select>
-                  <span class="err"></span>
-                </div>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>School</legend>
-              <div class="fields-2">
-                <div class="field full"><span class="q" id="q-grade">Current grade <span class="req">*</span></span>
-                  <div class="pills" role="radiogroup" aria-labelledby="q-grade">
-                    <label><input type="radio" name="grade" value="Grade 9" required><span>Grade 9</span></label>
-                    <label><input type="radio" name="grade" value="Grade 10"><span>Grade 10</span></label>
-                    <label><input type="radio" name="grade" value="Grade 11"><span>Grade 11</span></label>
-                    <label><input type="radio" name="grade" value="Grade 12"><span>Grade 12</span></label>
-                    <label><input type="radio" name="grade" value="Completed Grade 12 in 2026"><span>Completed Grade
-                        12 in 2026</span></label>
-                  </div>
-                  <span class="err"></span>
-                </div>
-                <div class="field full"><label for="f-school">School name <span class="req">*</span></label>
-                  <input type="text" id="f-school" name="school" required>
-                  <span class="err"></span>
-                </div>
-                <div class="field"><label for="f-board">Board <span class="req">*</span></label>
-                  <select id="f-board" name="board" required>
-                    <option value="">Select</option>
-                    <option>CBSE</option>
-                    <option>CISCE (ICSE / ISC)</option>
-                    <option>State board</option>
-                    <option>IB</option>
-                    <option>Cambridge (IGCSE / A Level)</option>
-                    <option>NIOS</option>
-                    <option>Other</option>
-                  </select>
-                  <span class="err"></span>
-                </div>
-                <div class="field"><label for="f-stream">Stream <span class="req">*</span></label>
-                  <select id="f-stream" name="stream" required>
-                    <option value="">Select</option>
-                    <option>Science</option>
-                    <option>Commerce</option>
-                    <option>Humanities / Arts</option>
-                    <option>Not chosen yet (Grade 9 or 10)</option>
-                  </select>
-                  <span class="err"></span>
-                </div>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>Parent or guardian</legend>
-              <div class="fields-2">
-                <div class="field full"><label for="f-pname">Name <span class="req">*</span></label>
-                  <input type="text" id="f-pname" name="parent_name" required>
-                  <span class="err"></span>
-                </div>
-                <div class="field"><label for="f-pphone">Phone <span class="req">*</span></label>
-                  <input type="tel" id="f-pphone" name="parent_phone" inputmode="tel"
-                    pattern="(\+91 ?)?[6-9][0-9]{4} ?[0-9]{5}" required>
-                  <span class="err"></span>
-                </div>
-                <div class="field"><label for="f-pemail">Email <span class="req">*</span></label>
-                  <input type="email" id="f-pemail" name="parent_email" required>
-                  <span class="err"></span>
-                </div>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>In your words</legend>
-              <div class="fields-2">
-                <div class="field full"><label for="f-why">Why do you want to join the Indo Youth AI Leadership
-                    Program? <span class="req">*</span></label>
-                  <span class="hint">What excites you about AI, and what do you hope to get out of these six
-                    days? 80 to 200 words.</span>
-                  <textarea id="f-why" name="why_join" data-min-words="80" data-max-words="200" required></textarea>
-                  <span class="counter" data-for="f-why">0 words</span>
-                  <span class="err"></span>
-                </div>
-                <div class="field full"><label for="f-led">Tell us about something you started, led or created</label>
-                  <span class="hint">A club, event, project, piece of art, small business, anything. Optional, up to
-                    150 words.</span>
-                  <textarea id="f-led" name="led_or_created" data-max-words="150"></textarea>
-                  <span class="counter" data-for="f-led">0 words</span>
-                  <span class="err"></span>
-                </div>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>Logistics</legend>
-              <div class="fields-2">
-                <div class="field full"><span class="q" id="q-res">Would you like to request on-campus residence?
-                    <span class="req">*</span></span>
-                  <span class="hint">Limited, for separate charges, subject to availability.</span>
-                  <div class="pills" role="radiogroup" aria-labelledby="q-res">
-                    <label><input type="radio" name="residence" value="Yes" required><span>Yes, request
-                        residence</span></label>
-                    <label><input type="radio" name="residence" value="No"><span>No, I'll commute</span></label>
-                  </div>
-                  <span class="err"></span>
-                </div>
-                <div class="field full"><label for="f-source">How did you hear about the program?</label>
-                  <select id="f-source" name="source">
-                    <option value="">Select</option>
-                    <option>Instagram</option>
-                    <option>My school</option>
-                    <option>A friend or classmate</option>
-                    <option>Parent or family</option>
-                    <option>IIIT Delhi</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>Declaration</legend>
-              <div class="checks">
-                <label class="check"><input type="checkbox" name="citizen" value="Yes" required><span>I am an Indian
-                    citizen.</span></label>
-                <label class="check"><input type="checkbox" name="english" value="Yes" required><span>I am comfortable
-                    learning and communicating in English, the language of the program.</span></label>
-                <label class="check"><input type="checkbox" name="consent" value="Yes" required><span>My parent or
-                    guardian knows about and agrees to this application.</span></label>
-                <label class="check"><input type="checkbox" name="accurate" value="Yes" required><span>The information
-                    I have given is accurate, and I agree to ISAiL contacting me and my parent or guardian about the
-                    program.</span></label>
-              </div>
-              <span class="err" id="checksErr"></span>
-            </fieldset>
-
-            <div class="submit-row">
-              <button type="submit" class="btn btn-solid" id="submitBtn">Submit application <span class="arrow"
-                  aria-hidden="true"></span></button>
-              <span class="form-status" id="formStatus" role="status" aria-live="polite"></span>
+          <p class="label dot-label rv">Fees &amp; key dates</p>
+          <h2 class="p-h2 rv d1">Don't miss a deadline<span class="stop">.</span></h2>
+          <div class="perks">
+            <div class="perk rv d1">
+              <span class="tag">Program fee</span>
+              <h3>₹13,000<span class="stop">.</span></h3>
+              <p>Covers the program, meals, the program kit and access to campus facilities such as the gym, library and
+                labs. Limited on-campus residence is an additional ₹9,000, subject to availability.</p>
             </div>
-          </form>
-
-          <div class="form-done" id="formDone" hidden tabindex="-1">
-            <div class="sun" aria-hidden="true"></div>
-            <h3 class="h-md">Application received<span class="stop">.</span></h3>
-            <p>Thank you for applying. Our team will review your application, and shortlisted applicants will be
-              invited by email to the Group Discussion round.</p>
-            <p>Questions in the meantime? Write to contact@isailab.com.</p>
+            <div class="perk rv d2">
+              <span class="tag">Scholarships</span>
+              <h3>Up to 75% off<span class="stop">.</span></h3>
+              <p>Need-based financial aid of up to 75% of the program fee. Choose "Yes" for the scholarship question in
+                the form and apply by <b>20 November 2026</b>.</p>
+            </div>
           </div>
         </div>
+        <ol class="timeline-p rv d1">
+          <li class="now"><span class="what">Applications open</span><span class="when">27 Oct 2026</span></li>
+          <li><span class="what">Group Discussions begin</span><span class="when">1 Nov 2026</span></li>
+          <li class="key"><span class="what">Scholarship applicants apply by</span><span class="when">20 Nov 2026</span></li>
+          <li class="key"><span class="what">Application deadline</span><span class="when">30 Nov 2026</span></li>
+          <li><span class="what">Final selection</span><span class="when">1 – 20 Dec 2026</span></li>
+          <li class="event"><span class="what">The program</span><span class="when">26 – 31 Dec 2026</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= APPLY CTA ================= -->
+  <section class="p-cta" id="apply">
+    <div class="wrap">
+      <div class="cta-box rv">
+        <div>
+          <p class="label dot-label">Apply by 30 November 2026</p>
+          <h2 class="p-h2">Lead the future. Apply now<span class="stop">.</span></h2>
+          <p class="p-note">It takes about 10 minutes. Seats are limited and selection is competitive. Applying for a
+            scholarship? Apply by 20 November 2026.</p>
+        </div>
+        <a class="btn btn-solid big" href="apply.html">Start your application <span class="arrow"
+            aria-hidden="true"></span></a>
       </div>
     </div>
   </section>
@@ -442,9 +329,52 @@
               streams on purpose.</p>
           </details>
           <details>
+            <summary>What does the fee include?<span class="pm" aria-hidden="true"></span></summary>
+            <p>The program fee of ₹13,000 covers the program, meals, the program kit and access to campus facilities
+              such as the gym, library and labs. On-campus residence is an additional ₹9,000.</p>
+          </details>
+          <details>
+            <summary>Is financial aid available?<span class="pm" aria-hidden="true"></span></summary>
+            <p><b>Yes.</b> Need-based scholarships of up to 75% of the program fee are available, subject to verification
+              of relevant documents and review by a committee, whose decision on the final offer is final. Choose "Yes"
+              for the scholarship question in the form and apply by <b>20 November 2026</b>.</p>
+          </details>
+          <details>
+            <summary>How does selection work?<span class="pm" aria-hidden="true"></span></summary>
+            <p>In four steps. You fill in the online application. We review every application and invite shortlisted
+              candidates to a Group Discussion round (these begin on 1 November 2026). Selected students then receive a
+              confirmation email and secure their seat by completing the payment. Final selection runs from 1 to 20
+              December 2026.</p>
+          </details>
+          <details>
             <summary>Can I stay on campus?<span class="pm" aria-hidden="true"></span></summary>
-            <p>Limited on-campus residence is available for separate charges, subject to availability. Request it in
-              your application.</p>
+            <p>Limited on-campus residence is available for an additional ₹9,000, subject to availability. Request it
+              in your application.</p>
+          </details>
+          <details>
+            <summary>I finished Grade 12 this year. Can I still apply?<span class="pm" aria-hidden="true"></span></summary>
+            <p><b>Yes.</b> Students who completed Grade 12 in 2026 can apply, along with students currently in Grades 9
+              to 12.</p>
+          </details>
+          <details>
+            <summary>What does a day look like?<span class="pm" aria-hidden="true"></span></summary>
+            <p>Program hours are 9 AM to 8 PM. Days mix masterclasses, hands-on studios and labs, team work and
+              evenings like Chai with Changemakers and a Cultural Evening. Residents also have morning routines and
+              evening walks and discussions with their mentors and teams.</p>
+          </details>
+          <details>
+            <summary>Who will I learn from?<span class="pm" aria-hidden="true"></span></summary>
+            <p>Faculty, AI and technology practitioners, entrepreneurs, young founders, designers, finance and marketing
+              professionals, and career experts. Mentors guide you throughout the six days.</p>
+          </details>
+          <details>
+            <summary>What should I bring?<span class="pm" aria-hidden="true"></span></summary>
+            <p>Warm clothing (it's Delhi in December), personal essentials, a notebook, and the documents listed in your
+              confirmation email.</p>
+          </details>
+          <details>
+            <summary>What language is the program in?<span class="pm" aria-hidden="true"></span></summary>
+            <p>English. You should be comfortable learning and communicating in English.</p>
           </details>
           <details>
             <summary>Will I get a certificate?<span class="pm" aria-hidden="true"></span></summary>
@@ -473,12 +403,12 @@
       <div class="foot-bottom" style="margin-top:0;border-top:0;padding-top:0;">
         <span>© 2026 ISAiL · Indo Secure AI Lab</span>
         <span><a href="mailto:contact@isailab.com">contact@isailab.com</a> · <a
-            href="https://www.instagram.com/isail_lab/" target="_blank" rel="noopener">@isail_lab</a></span>
+            href="https://www.instagram.com/isail_lab/" target="_blank" rel="noopener">@isail_lab</a> · LinkedIn: Indo Secure AI Lab (ISAiL)</span>
       </div>
     </div>
   </footer>
 
-  <script src="assets/site.js?v=5"></script>
+  <script src="assets/site.js?v=8"></script>
 </body>
 
 </html>

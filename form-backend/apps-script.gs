@@ -23,14 +23,21 @@ const FIELDS = [
   ['state', 'State / UT'],
   ['grade', 'Grade'],
   ['school', 'School'],
+  ['school_type', 'School type'],
   ['board', 'Board'],
   ['stream', 'Stream'],
+  ['school_contact_name', 'School contact person'],
+  ['school_email', 'School email'],
+  ['school_phone', 'School phone'],
   ['parent_name', 'Parent / guardian name'],
   ['parent_phone', 'Parent / guardian phone'],
   ['parent_email', 'Parent / guardian email'],
   ['why_join', 'Why join'],
   ['led_or_created', 'Started, led or created'],
-  ['residence', 'Residence requested'],
+  ['prior_program', 'Attended similar program'],
+  ['prior_program_details', 'Similar program details'],
+  ['scholarship', 'Applying for scholarship'],
+  ['residence', 'Applying for residence'],
   ['source', 'Heard about us via'],
   ['citizen', 'Indian citizen'],
   ['english', 'Comfortable in English'],
@@ -64,7 +71,8 @@ function doPost(e) {
         htmlBody:
           '<p>Dear ' + escape_(p.name) + ',</p>' +
           '<p>Thank you for applying to the <b>Indo Youth AI Leadership Program</b> (26 to 31 December 2026, IIIT Delhi).</p>' +
-          '<p>Our team will review your application. Shortlisted applicants will be invited by email to the Group Discussion round.</p>' +
+          '<p>Our team will review your application. Shortlisted applicants will be invited by email to the Group Discussion round. Group Discussions begin on 1 November 2026, and final selection takes place between 1 and 20 December 2026.</p>' +
+          (p.scholarship === 'Yes' ? '<p>You have also applied for a need-based scholarship. Our team will contact you about the documents needed for verification.</p>' : '') +
           '<p>Questions? Just reply to this email or write to contact@isailab.com.</p>' +
           '<p>ISAiL (Indo Secure AI Lab)</p>',
         name: 'ISAiL',
@@ -89,10 +97,13 @@ function getSheet_() {
   const ss = SpreadsheetApp.getActive();
   let sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) sheet = ss.insertSheet(SHEET_NAME);
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow(FIELDS.map(([, label]) => label));
+  // Keep the header row in sync with FIELDS (also after questions are added).
+  const labels = FIELDS.map(([, label]) => label);
+  const header = sheet.getRange(1, 1, 1, labels.length);
+  const current = sheet.getLastRow() ? header.getValues()[0] : [];
+  if (current.join('|') !== labels.join('|')) {
+    header.setValues([labels]).setFontWeight('bold');
     sheet.setFrozenRows(1);
-    sheet.getRange(1, 1, 1, FIELDS.length).setFontWeight('bold');
   }
   return sheet;
 }
