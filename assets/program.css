@@ -1178,29 +1178,18 @@ body.prog {
   position: static;
 }
 
-/* ---------- countdown heartbeat ---------- */
+/* ---------- countdown breathing (faster) ---------- */
 .p-sun {
-  animation: p-beat 1.4s ease-in-out infinite;
-}
-
-@keyframes p-beat {
-  0%, 100% { transform: translateY(-50%) scale(1); }
-  14% { transform: translateY(-50%) scale(1.05); }
-  28% { transform: translateY(-50%) scale(1); }
-  42% { transform: translateY(-50%) scale(1.035); }
-  70% { transform: translateY(-50%) scale(1); }
+  animation: p-breathe 3.5s ease-in-out infinite;
 }
 
 @media (max-width: 760px) {
   .p-sun {
-    animation: p-beat-m 1.4s ease-in-out infinite;
+    animation: p-breathe-m 3.5s ease-in-out infinite;
   }
 
-  @keyframes p-beat-m {
+  @keyframes p-breathe-m {
     0%, 100% { transform: scale(1); }
-    14% { transform: scale(1.06); }
-    28% { transform: scale(1); }
-    42% { transform: scale(1.04); }
-    70% { transform: scale(1); }
+    50% { transform: scale(1.03); }
   }
 }
